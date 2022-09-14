@@ -39,3 +39,17 @@ I've been working on catching up on last week today. I feel I've made a lot of p
   - started this journal
 - Bonus: Non-Java accomplishments today (I'm in a good mood)
   - Got a review I'm writing for the newspaper to a state where it's about a paragraph away from being ready for review
+
+9/13
+
+Today, I'm updating my used references, based on the tabs I've been leaving open to track them more easily.
+They are the following:
+- The course website, Slack server, and YouTube channel
+- [JetBrains page on debugging in IDEA](https://www.jetbrains.com/help/idea/debugging-your-first-java-application.html)
+- Google searches which embedded information from the following
+  - [Finding packages installed through apt](https://www.cyberciti.biz/faq/apt-get-list-packages-are-installed-on-ubuntu-linux/)
+  - [Installing multiple packages at once](https://askubuntu.com/questions/874611/installing-multiple-packages-at-the-same-time)
+  - [Upgrading packages using apt](https://itsfoss.com/apt-get-linux-guide/)
+- [Enabling soft wrap](https://www.jetbrains.com/idea/guide/tips/enable-soft-wrap/#:~:text=You%20can%20enable%20soft%20wrap,more%20file%20types%20by%20default.)
+- [Java Discord API](https://github.com/DV8FromTheWorld/JDA/)
+- [Java Discord API tutorial](https://youtu.be/LFsxkWME7M0)
