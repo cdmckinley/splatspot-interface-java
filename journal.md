@@ -1,5 +1,5 @@
 # Enterprise Java course journal
-Here, I'll document my progress ans studies in the class.
+Here, I'll document my progress and studies in the class.
 
 ### Before Class Began
 Up to and including 8/29/2022
