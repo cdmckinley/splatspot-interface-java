@@ -15,7 +15,7 @@ Finding someone to play a specific game with you isn't always easy. When it come
 ### Project Technologies
 
 - Database
-  - TBD
+  - Likely MySQL
 - ORM Framework
   - Hibernate
 - Dependency Management
@@ -43,9 +43,8 @@ Finding someone to play a specific game with you isn't always easy. When it come
 ### [Project Goals](goals.md)
 
 ### Design
-- TBD
+- [User stories](userStories.md)
 
-### Project Plan
-- TBD
+### [Project Plan](planning.md)
 
 ### [Journal](journal.md)
