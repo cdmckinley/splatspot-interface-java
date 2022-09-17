@@ -40,6 +40,8 @@ Finding someone to play a specific game with you isn't always easy. When it come
 - IDE
   - IntelliJ IDEA
 
+### [Project Goals](goals.md)
+
 ### Design
 - TBD
 
