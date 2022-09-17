@@ -65,3 +65,10 @@ I accomplished:
 Using the following:
 - [Atlassian for JAVA_HOME](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html)
 - [The class's website](http://paulawaite.com/education/java113/setup/personalLaptopSetup.html)
+
+9/17 **Part two!**
+
+I did a lot of planning today, I:
+- Created [Goals document](goals.md)
+- Created[User stories](userStories.md)
+- Have a [plan](planning.md)!
