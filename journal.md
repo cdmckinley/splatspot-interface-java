@@ -53,3 +53,15 @@ They are the following:
 - [Enabling soft wrap](https://www.jetbrains.com/idea/guide/tips/enable-soft-wrap/#:~:text=You%20can%20enable%20soft%20wrap,more%20file%20types%20by%20default.)
 - [Java Discord API](https://github.com/DV8FromTheWorld/JDA/)
 - [Java Discord API tutorial](https://youtu.be/LFsxkWME7M0)
+
+9/16-17
+
+I got my laptop set up to work on this class.
+
+I accomplished:
+- Setting up JDK 11 and IntelliJ
+- setting up Tomcat and SoapUI
+- Setting up MySQL
+Using the following:
+- [Atlassian for JAVA_HOME](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html)
+- [The class's website](http://paulawaite.com/education/java113/setup/personalLaptopSetup.html)
