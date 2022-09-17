@@ -7,20 +7,24 @@
 - Login through Discord via OAuth2.
 
 ### Player-information:
-- (stored in our Databse, referencing an external service) Store the information by Discord user.
+- (stored in our Database, referencing an external service) Store the information by Discord user.
 - Provide a form to input the following game information:
   - Friend code and (maybe) name from Nintendo Switch profile.
   - SplashTag Name (in-game name), and potentially tag (the 4-digit number), for identifying the player.
   - Any user configurations/preferences.
 
 ### Finding a game:
-- (It's own page, making use of Java Discord API)
+- (Its own page, making use of Java Discord API)
 - One or more of the following:
   - Matchmaking (complicated):
     - Let the user que up for matchmaking in a team (default of 4).
     - Either:
       - Match teams of 4 players, and a game of 2 teams.
       - Match a group of 8 players, and randomly assign teams.
+    - In either case:
+      - Provide a host with information to host the others, such as a random passcode.
+      - Let the host choose someone else to host.
+      - Give the host's friend code to other players, so everyone can connect.
   - Status broadcasting (more simple):
     - If the user chooses, let the bot broadcast that the user is in a room looking for a game.
     - Stop broadcasting when the group is full.
@@ -43,3 +47,4 @@
   - Memes
     - accessed through Twitter (and maybe an image-hosting site?)
     - potentially features embedded information
+- Post new media to a Discord channel
