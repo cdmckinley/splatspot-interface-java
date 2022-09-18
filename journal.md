@@ -70,5 +70,21 @@ Using the following:
 
 I did a lot of planning today, I:
 - Created [Goals document](goals.md)
-- Created[User stories](userStories.md)
+- Created [User stories](userStories.md)
 - Have a [plan](planning.md)!
+
+### Fourth Week
+
+9/18
+
+I mocked up a main page today! I'm proud of how much I've gotten done.
+
+I referenced [Bootstrap's documentation](https://getbootstrap.com/docs) for (at least):
+- Containers
+- Background, link, and text colors
+- Flex, direction, justification, and alignment
+- sticky top and bottom
+- spacing (margin and padding)
+- borders
+
+I also made my own logo using the [Aseprite pixel-art tool](https://www.aseprite.org/) (which I installed via the Steam store, where I had previously bought it). I kept the project file in the `media` directory, in case I need to make changes.
