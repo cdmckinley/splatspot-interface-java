@@ -44,6 +44,7 @@ Finding someone to play a specific game with you isn't always easy. When it come
 
 ### Design
 - [User stories](userStories.md)
+- [Screen Design](screen-design.md)
 
 ### [Project Plan](planning.md)
 
