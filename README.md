@@ -29,8 +29,12 @@ Finding someone to play a specific game with you isn't always easy. When it come
     - Potentially an undecided image hosting website
 - CSS
   - Likely Bootstrap
+- Data Validation
+  - TODO determine this
 - Logging
   - Log4J2
+- Hosting:
+  - Likely AWS
 - Research Topics
   - Java Discord API (for communicating with Discord)
   - Twitter API (for embedding)
