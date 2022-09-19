@@ -88,3 +88,18 @@ I referenced [Bootstrap's documentation](https://getbootstrap.com/docs) for (at 
 - borders
 
 I also made my own logo using the [Aseprite pixel-art tool](https://www.aseprite.org/) (which I installed via the Steam store, where I had previously bought it). I kept the project file in the `media` directory, in case I need to make changes.
+
+9/19
+
+I worked a bit on Week 2 exercise. It's not entirely done, but progress has been made up to "next next steps" and finishing the TODOs.
+
+I also worked on a second mockup page, using the first page as a base. I referenced:
+- https://www.w3schools.com/tags/att_img_height.asp
+- The following images from [Splatoon Wiki](https://splatoonwiki.org/) to represent Splatoon-series characters (most of which I found through Google Images):
+  - [Crusty Sean](https://cdn.wikimg.net/en/splatoonwiki/images/thumb/b/b8/S2_crusty_sean.png/257px-S2_crusty_sean.png)
+  - [Craig Cuttlefish](https://cdn.wikimg.net/en/splatoonwiki/images/thumb/6/67/Old_Inkling.jpg/300px-Old_Inkling.jpg)
+  - [Big Man](https://cdn.wikimg.net/en/splatoonwiki/images/thumb/f/f0/S3_Big_Man_Render.png/501px-S3_Big_Man_Render.png)
+  - A [mysterious icon](https://cdn.wikimg.net/en/splatoonwiki/images/7/74/S2_Salmon_Run_question_mark_capsule.png) to represent Mr. Grizz
+
+I wanted to ignore the database.properties file, but it was a bit late to add to `.gitignore`, so I reset the commit:
+- [Undoing a commit](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/uncommit-git-last-commit-file-changes-pushed-deleted-message)
