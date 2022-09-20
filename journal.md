@@ -103,3 +103,18 @@ I also worked on a second mockup page, using the first page as a base. I referen
 
 I wanted to ignore the database.properties file, but it was a bit late to add to `.gitignore`, so I reset the commit:
 - [Undoing a commit](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/uncommit-git-last-commit-file-changes-pushed-deleted-message)
+
+9/20
+
+In finishing up exercise 2, I used:
+- Java 11 Documentation
+  - [Date](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html)
+  - [LocalDate](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDate.html)
+  - [Instant](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html)
+  - [ZoneDateTime](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html)
+  - [ZoneId](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZoneId.html)
+  - [Period.between](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Period.html#between(java.time.LocalDate,java.time.LocalDate))
+- I used [Javatpoint's guide](https://www.javatpoint.com/java-calculate-age) as a guideline, though I didn't scroll down, and tried to solve the rest based mostly on my own speculation, and documentation.
+- I used [Java Advent's guide](https://www.javaadvent.com/2020/12/4-ways-to-convert-date-to-localdate-in-java.html) to figure my path out from `Date` to `LocalDate`
+- ...Until I realized the date of birth was a `java.sql.Date` vs `java.util.Date`, but then I fixed it thanks to [Java 11 Docs](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/Date.html) again.
+- [DataTables](https://datatables.net/) as a way to display the data
