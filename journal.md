@@ -118,3 +118,21 @@ In finishing up exercise 2, I used:
 - I used [Java Advent's guide](https://www.javaadvent.com/2020/12/4-ways-to-convert-date-to-localdate-in-java.html) to figure my path out from `Date` to `LocalDate`
 - ...Until I realized the date of birth was a `java.sql.Date` vs `java.util.Date`, but then I fixed it thanks to [Java 11 Docs](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/Date.html) again.
 - [DataTables](https://datatables.net/) as a way to display the data
+
+9/22
+
+I completed Exercise 2 today! It took me longer because of different Date types, not putting a '/' in a name when calling a resource, and forgetting to save the returned value of `loadProperties` to memory. There was also other trial and error, but it's done now.
+I used:
+- Java 11 documentation
+  - [PreparedStatement](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/PreparedStatement.html)
+  - [Connection](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/Connection.html)
+  - [HttpServletRequest](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpRequest.html)
+- TutorialsPoint
+  - [It's JSTL installation guide](https://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm), but I didn't end up needing it
+  - [JSTL foreach](https://www.tutorialspoint.com/jsp/jstl_core_foreach_tag.htm)
+- Tomcat documentation for [ServletRequest](https://tomcat.apache.org/tomcat-7.0-doc/servletapi/javax/servlet/ServletRequest.html), in trying to find `httpServletRequest`
+- [jQuery](https://releases.jquery.com/)
+- w3schools
+  - [HTML forms](https://www.w3schools.com/html/html_forms.asp)
+  - [Form attributes](https://www.w3schools.com/html/html_forms.asp)
+- as usual, the course website, slack, and videos
