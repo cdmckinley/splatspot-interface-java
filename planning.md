@@ -21,6 +21,7 @@
 
 ### Week 7
 - Submit checkpoint 2
+- Submit Prof Dev Activity presentation
 
 ### Week 8
 
