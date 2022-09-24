@@ -136,3 +136,13 @@ I used:
   - [HTML forms](https://www.w3schools.com/html/html_forms.asp)
   - [Form attributes](https://www.w3schools.com/html/html_forms.asp)
 - as usual, the course website, slack, and videos
+
+9/24
+
+I've made it around halfway through Exercise 3. I wrote the first two tests confidently!
+Here are the resources I used:
+- Java docs
+  - [For loop (for each)](https://docs.oracle.com/javase/8/docs/technotes/guides/language/foreach.html)
+  - [IndexOutOfBoundsException](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/IndexOutOfBoundsException.html)
+    - [CodeJava's guide](https://www.codejava.net/testing/junit-test-exception-examples-how-to-assert-an-exception-is-thrown) on testing if an exception is thrown. Note: I only searched for how to assert an exception. The guide was maybe a bit too helpful with the rest of the solution, not just the name of `AssertThrows`. I did reference it for the `Executable` object.
+    - For future knowledge, I did also search for [lambdas in Java](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html) as an alternative to creating an executable object.
