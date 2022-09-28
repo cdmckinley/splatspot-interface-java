@@ -146,3 +146,43 @@ Here are the resources I used:
   - [IndexOutOfBoundsException](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/IndexOutOfBoundsException.html)
     - [CodeJava's guide](https://www.codejava.net/testing/junit-test-exception-examples-how-to-assert-an-exception-is-thrown) on testing if an exception is thrown. Note: I only searched for how to assert an exception. The guide was maybe a bit too helpful with the rest of the solution, not just the name of `AssertThrows`. I did reference it for the `Executable` object.
     - For future knowledge, I did also search for [lambdas in Java](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html) as an alternative to creating an executable object.
+
+### Fifth Week
+
+9/27
+
+While I was low on energy and focus the past few days, I did get some momentum today! I submitted the work for week 3!
+I used the following resources:
+- Java Documentation
+  - [FileReader](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileReader.html)
+  - [BufferedReader](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/BufferedReader.html)
+  - [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
+  - [Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html) when trying to find `getClass`
+  - [Class](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html) when trying to make use of `getMethod`, when a lambda should have been used
+  - [Integer](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html)
+  - A guide on [Throwing](https://docs.oracle.com/javase/tutorial/essential/exceptions/throwing.html)
+- [Throwing custom exceptions](https://www.geeksforgeeks.org/user-defined-custom-exception-in-java/)
+- [Reading files line-by-line in Java](https://www.javatpoint.com/how-to-read-file-line-by-line-in-java) (I'd forgotten about BufferedReader)
+- I also used our Slack DMs and the class website and YouTube channel
+
+9/28
+
+I began working on parts of my project that relate to Exercise 4 today.
+
+I've used the following today:
+- The course website
+- TutorialsPoint
+  - [DAO pattern](https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm)
+  - [Hibernate Tutorial](https://www.tutorialspoint.com//hibernate/index.htm)
+- Took a look at [Singleton on Wikipedia](https://en.wikipedia.org/wiki/Singleton_pattern)
+- A Google search for "does MySQL have booleans' suggested [this](https://blog.devart.com/mysql-data-types.html#:~:text=MySQL%20does%20not%20have%20a,%2C%20and%201%2C%20if%20true.)
+- MySQL documentation
+  - [Integer types](https://dev.mysql.com/doc/refman/8.0/en/integer-types.html)
+  - [String types](https://dev.mysql.com/doc/refman/8.0/en/string-types.html)
+  - [Char](https://dev.mysql.com/doc/refman/8.0/en/char.html)
+- Java documentation
+  - A [refresher](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html#:~:text=The%20private%20modifier%20specifies%20that,its%20class%20in%20another%20package.) on `private` vs `protected` to ensure I was using the right one
+  - [HashMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html)
+- A Google search for "java dictionary vs map" suggested [this](https://coderanch.com/t/581116/java/Map-Dictionary)
+- A Google search for "java bean requirements" suggested [this on StackOverflow](https://stackoverflow.com/questions/3295496/what-is-a-javabean-exactly)
+- [POJO vs JavaBeans](https://www.geeksforgeeks.org/pojo-vs-java-beans/)
