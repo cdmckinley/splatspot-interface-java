@@ -186,3 +186,25 @@ I've used the following today:
 - A Google search for "java dictionary vs map" suggested [this](https://coderanch.com/t/581116/java/Map-Dictionary)
 - A Google search for "java bean requirements" suggested [this on StackOverflow](https://stackoverflow.com/questions/3295496/what-is-a-javabean-exactly)
 - [POJO vs JavaBeans](https://www.geeksforgeeks.org/pojo-vs-java-beans/)
+
+9/29
+
+I continued working on my project through working on Exercise 4 today.
+
+I referred to:
+- The course website, YouTube channel, and Slack
+- Tutorialspoint
+  - Their [Hibernate tutorial](https://www.tutorialspoint.com/hibernate/index.htm)
+  - Their [DAO tutorial](https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm)
+  - Their [guide on RDBMS data types](https://www.tutorialspoint.com/hibernate/hibernate_mapping_types.htm#:~:text=When%20you%20prepare%20a%20Hibernate,not%20SQL%20database%20types%20either.), or the types used in Hibernate's mapping files
+- The [Hibernate guide](https://docs.jboss.org/hibernate/orm/5.4/quickstart/html_single/) linked to in the course website
+- MySQL.dev
+  - [Create Database](https://dev.mysql.com/doc/refman/8.0/en/create-database.html)
+  - [Create Table](https://dev.mysql.com/doc/refman/8.0/en/create-table.html)
+  - [Naming conventions](https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_NAMING_CONVENTIONS.html)
+- [MySQL Naming Convention guide](https://courses.cs.washington.edu/courses/cse154/18sp/18sp-data/documents/styleguide/sql/naming-conventions-sql.html)
+- [W3Schools' XML guide](https://www.w3schools.com/xml/xml_syntax.asp) confirmed for me that I was missing the root tag of the config file (I needed to read further down the configuration guide)
+- [Atlassian's Git ignore guide](https://www.atlassian.com/git/tutorials/saving-changes/gitignore) for ignoring a fle in recursive subdirectories
+- Tomcat's documentation
+  - [HttpServlet](https://tomcat.apache.org/tomcat-7.0-doc/servletapi/javax/servlet/http/HttpServlet.html)
+- [ServletContext documentation](https://tomcat.apache.org/tomcat-7.0-doc/servletapi/javax/servlet/ServletContext.html) and [StackOverFlow](https://stackoverflow.com/questions/32775599/how-would-i-obtain-sessionfactory-from-the-servletcontext-in-the-dao) while trying to find how I'd keep using the same `SessionFactory`. They didn't give me the solution, but did confirm that storing it in `ServletContext` would be a problem. (I did find the video for the exercise, which showed me how it should be properly done.)
