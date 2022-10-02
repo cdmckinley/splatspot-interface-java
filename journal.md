@@ -208,3 +208,20 @@ I referred to:
 - Tomcat's documentation
   - [HttpServlet](https://tomcat.apache.org/tomcat-7.0-doc/servletapi/javax/servlet/http/HttpServlet.html)
 - [ServletContext documentation](https://tomcat.apache.org/tomcat-7.0-doc/servletapi/javax/servlet/ServletContext.html) and [StackOverFlow](https://stackoverflow.com/questions/32775599/how-would-i-obtain-sessionfactory-from-the-servletcontext-in-the-dao) while trying to find how I'd keep using the same `SessionFactory`. They didn't give me the solution, but did confirm that storing it in `ServletContext` would be a problem. (I did find the video for the exercise, which showed me how it should be properly done.)
+
+10/2
+
+I'm getting closer to being caught up. I had to update JUnit for my project to support ordering my tests, as some tests were dependent on others' changes to the database. I still need to figure out ID generation, but I'm pretty much done otherwise.
+
+Resources:
+- The course website, YouTube channel,and Slack
+- Hibernate docs
+  - [Session](https://docs.jboss.org/hibernate/orm/3.2/api/org/hibernate/Session.html)
+  - [Query](https://docs.jboss.org/hibernate/orm/3.2/api/org/hibernate/Query.html)
+  - [SessionFactory](https://docs.jboss.org/hibernate/orm/3.5/javadocs/org/hibernate/SessionFactory.html)
+  - [Transaction](https://docs.jboss.org/hibernate/orm/3.2/api/org/hibernate/Transaction.html)
+  - [Main page](https://hibernate.org/orm/documentation/5.4/)
+- [Tutorialspoint Hibernate tutorial](https://www.tutorialspoint.com/hibernate/index.htm)
+- [Guide on code coverage for IntelliJ](https://www.jetbrains.com/help/idea/code-coverage.html#fe1f1331)
+- [Ordering JUnit tests](https://www.codejava.net/testing/junit-tests-order)
+- [Maven's repository site](https://mvnrepository.com/) to find versions of JUnit to update to, so I have support for ordering the tests with annotations.
