@@ -53,3 +53,6 @@ fabric.properties
 
 # hibernate cofiguration files
 **/hibernate.cfg.xml
+
+# database connection files
+**/database.propeties
