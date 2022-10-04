@@ -1,5 +1,6 @@
 package edu.matc.util;
 
+import edu.matc.utilities.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,7 +17,7 @@ import java.util.Properties;
  * @author pwaite
  */
 
-public class Database {
+public class Database implements PropertiesLoader {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
     // create an object of the class Database
@@ -28,21 +29,7 @@ public class Database {
 
     // private constructor prevents instantiating this class anywhere else
     private Database() {
-        loadProperties();
-
-    }
-
-    private void loadProperties() {
-        properties = new Properties();
-        try {
-            properties.load (this.getClass().getResourceAsStream("/database.properties"));
-        } catch (IOException ioe) {
-            System.out.println("Database.loadProperties()...Cannot load the properties file");
-            ioe.printStackTrace();
-        } catch (Exception e) {
-            System.out.println("Database.loadProperties()..." + e);
-            e.printStackTrace();
-        }
+        properties = loadProperties("/database.properties");
 
     }
 
