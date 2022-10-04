@@ -211,7 +211,7 @@ I referred to:
 
 10/2
 
-I'm getting closer to being caught up. I had to update JUnit for my project to support ordering my tests, as some tests were dependent on others' changes to the database. I still need to figure out ID generation, but I'm pretty much done otherwise.
+I'm getting closer to being caught up. I had to update JUnit for my project to support ordering my tests, as some tests were dependent on others' changes to the database (***Edit from October 4th***: Do ***not*** try this in your own project. It's not a good practice). I still need to figure out ID generation, but I'm pretty much done otherwise.
 
 Resources:
 - The course website, YouTube channel,and Slack
