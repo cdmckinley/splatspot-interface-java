@@ -56,3 +56,6 @@ fabric.properties
 
 # database connection files
 **/database.propeties
+
+# log4J2 properties
+**/log4j2.properties
