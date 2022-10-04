@@ -225,3 +225,19 @@ Resources:
 - [Guide on code coverage for IntelliJ](https://www.jetbrains.com/help/idea/code-coverage.html#fe1f1331)
 - [Ordering JUnit tests](https://www.codejava.net/testing/junit-tests-order)
 - [Maven's repository site](https://mvnrepository.com/) to find versions of JUnit to update to, so I have support for ordering the tests with annotations.
+
+### Sixth Week
+
+10/3 & 10/4
+
+With use of some references, I got id generation working as I believe it should. References used particularly for this issue today include:
+- [Changing the generator type in the mapping file](https://stackoverflow.com/questions/51901344/hibernate-save-always-returns-0)
+- The `id` column of Week 2's 'sample' table
+
+And during class, it was pointed out to me how much time I was *losing* trying to *save* time. I'll make a bigger effort to consume the class material from now on.
+
+Other references from this time:
+- The course website, YouTube channel, and Slack
+- [Using apostrophes in MySQL](https://www.tutorialspoint.com/how-to-escape-apostrophe-in-mysql) to refresh my memory
+- [ClassLoader](https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html) and [FileReader](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileReader.html) in writing temporary cod to diagnose why my SQL file wasn't being read
+- Code from [the demo](https://github.com/mad-ent-java-f22/user-display-demo-code) to find out I shouldn't be using a slash in that file name
