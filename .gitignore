@@ -55,7 +55,7 @@ fabric.properties
 **/hibernate.cfg.xml
 
 # database connection files
-**/database.propeties
+**/database.properties
 
 # log4J2 properties
 **/log4j2.properties
