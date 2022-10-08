@@ -241,3 +241,12 @@ Other references from this time:
 - [Using apostrophes in MySQL](https://www.tutorialspoint.com/how-to-escape-apostrophe-in-mysql) to refresh my memory
 - [ClassLoader](https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html) and [FileReader](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileReader.html) in writing temporary cod to diagnose why my SQL file wasn't being read
 - Code from [the demo](https://github.com/mad-ent-java-f22/user-display-demo-code) to find out I shouldn't be using a slash in that file name
+
+10/5 through 10/8 (roughly speaking)
+
+- Tutorialspoint [One to Many](https://www.tutorialspoint.com/hibernate/hibernate_one_to_many_mapping.htm) and [Many to One](https://www.tutorialspoint.com/hibernate/hibernate_many_to_one_mapping.htm)
+- Hibernate Docs on JBoss
+  - [OneToMany](https://docs.jboss.org/hibernate/jpa/2.1/api/javax/persistence/OneToMany.html) annotation
+- Realizing `FetchType.LAZY` was a bad idea
+  - On StackOverflow: [This](https://stackoverflow.com/questions/22821695/how-to-fix-hibernate-lazyinitializationexception-failed-to-lazily-initialize-a) and [this](https://stackoverflow.com/questions/72181249/how-to-fix-org-hibernate-lazyinitializationexception-failed-to-lazily-initializ)
+  - Slack
