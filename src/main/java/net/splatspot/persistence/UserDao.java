@@ -12,7 +12,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
-
 import java.util.List;
 
 /**
@@ -55,7 +54,7 @@ public class UserDao {
     /**
      * Gets all users.
      *
-     * @return the all users
+     * @return all the users
      */
     public List<User> getAllUsers() {
         Session session = sessionFactory.openSession();
