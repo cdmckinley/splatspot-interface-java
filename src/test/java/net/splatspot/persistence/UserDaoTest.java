@@ -1,13 +1,14 @@
 package net.splatspot.persistence;
 
 import edu.matc.util.Database;
+import net.splatspot.entity.SharedMedia;
 import net.splatspot.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The test for UserDao.
@@ -34,6 +35,7 @@ public class UserDaoTest {
     @Test
     void insertUser() {
         int id = 0;
+
         User user = new User();
         user.setNickname("JustATest");
         user.setFriendCode("SW-5555-5555-5555");
@@ -41,8 +43,18 @@ public class UserDaoTest {
         user.setSplashTagNumber("4567");
         user.setShareInfoWithUsers(false);
         user.setShareWhenReadyToPlay(true);
+
+        SharedMedia sharedMedia = new SharedMedia();
+        sharedMedia.setLink("https://twitter.com/discord");
+
+        sharedMedia.setUser(user);
+        user.addSharedMedia(sharedMedia);
+
         id = userDao.insertUser(user);
-        assertNotNull(userDao.getUser(id));
+
+        User result = userDao.getUser(id);
+        assertEquals("JustATest", result.getNickname());
+        assertEquals(1, result.getSharedMediaList().size());
     }
 
     /**
