@@ -3,6 +3,8 @@ package net.splatspot.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A User of the application, mapped with the database.
@@ -54,6 +56,10 @@ public class User {
      */
     @Column(name = "share_when_ready_to_play", nullable = false, length = 1)
     private boolean shareWhenReadyToPlay;
+
+    // TODO make JavaDoc for getters and setters
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<SharedMedia> sharedMediaList =  new HashSet<>();
 
     // TODO Add a field to identify a user by Discord login
 
@@ -188,6 +194,34 @@ public class User {
      */
     public void setShareWhenReadyToPlay(boolean choice) {
         this.shareWhenReadyToPlay = choice;
+    }
+
+    public Set<SharedMedia> getSharedMediaList() {
+        return sharedMediaList;
+    }
+
+    public void setSharedMediaList(Set<SharedMedia> sharedMedia) {
+        this.sharedMediaList = sharedMedia;
+    }
+
+    /**
+     * Add shared media.
+     *
+     * @param sharedMedia the shared media
+     */
+    public void addSharedMedia(SharedMedia sharedMedia) {
+        sharedMediaList.add(sharedMedia);
+        sharedMedia.setUser(this);
+    }
+
+    /**
+     * Remove shared media.
+     *
+     * @param sharedMedia the shared media
+     */
+    public void removeSharedMedia(SharedMedia sharedMedia) {
+        sharedMediaList.remove(sharedMedia);
+        sharedMedia.setUser(null);
     }
 
     /**
