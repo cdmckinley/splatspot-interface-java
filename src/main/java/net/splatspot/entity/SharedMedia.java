@@ -14,7 +14,8 @@ public class SharedMedia {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     private String link;
