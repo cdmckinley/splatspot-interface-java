@@ -250,3 +250,14 @@ Other references from this time:
 - Realizing `FetchType.LAZY` was a bad idea
   - On StackOverflow: [This](https://stackoverflow.com/questions/22821695/how-to-fix-hibernate-lazyinitializationexception-failed-to-lazily-initialize-a) and [this](https://stackoverflow.com/questions/72181249/how-to-fix-org-hibernate-lazyinitializationexception-failed-to-lazily-initializ)
   - Slack
+
+### Seventh week
+
+10/9 through 10/12
+
+I figured out that mapping with both annotations and xml is redundant, via:
+- [Not needing `*.hbm.xml` files if using annotations](https://stackoverflow.com/questions/25445627/if-we-are-using-annotation-based-hibernate-then-do-we-require-hbm-xml#:~:text=If%20you%27re%20referring%20to,to%20Hibernate%20XML%20Mapping%20files.)
+- [Example annotations](https://mkyong.com/hibernate/hibernate-one-to-many-relationship-example-annotation/) and [JoinColumn documentation](https://docs.jboss.org/hibernate/jpa/2.1/api/javax/persistence/JoinColumn.html) to get the `user` property mapped to `user_id` in the database
+- The class website, YouTube, and Slack
+
+I'm still figuring out how to enable EAGER fetching. I must be missing something.
