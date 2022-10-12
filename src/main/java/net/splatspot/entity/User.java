@@ -10,7 +10,7 @@ import java.util.Set;
  * A User of the application, mapped with the database.
  */
 @Entity
-@Table(name = "USER")
+@Table(name = "user")
 public class User {
 
     /**
