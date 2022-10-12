@@ -1,6 +1,7 @@
 package net.splatspot.persistence;
 
 import edu.matc.persistence.SessionFactoryProvider;
+import net.splatspot.entity.SharedMedia;
 import net.splatspot.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,6 +14,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
 import java.util.List;
+import java.util.Set;
 
 /**
  * The User Data Access Object.
@@ -83,7 +85,13 @@ public class UserDao {
         User user = null;
         if (users.size() == 1) {
             user = users.get(0);
+        } else {
+//            TODO throw an exception
         }
+
+        Set<SharedMedia> sharedMediaList = user.getSharedMediaList();
+        logger.debug("Found " + sharedMediaList.size() + " instances of SharedMedia with ID of " + user.getId());
+
         session.close();
         return user;
     }
@@ -102,11 +110,19 @@ public class UserDao {
         Expression<String> propertyPath = root.get("id");
         query.where(builder.equal(propertyPath, id));
         List<User> users = session.createQuery(query).getResultList();
-        User user = users.get(0);
-        user.setNickname(nickname);
-        Transaction transaction = session.beginTransaction();
-        session.update(user);
-        transaction.commit();
+
+        User user = null;
+
+        if (users.size() == 1) {
+            user = users.get(0);
+            user.setNickname(nickname);
+            Transaction transaction = session.beginTransaction();
+            session.update(user);
+            transaction.commit();
+        } else {
+//            TODO throw an exception
+        }
+
         session.close();
     }
 
@@ -123,10 +139,16 @@ public class UserDao {
         Expression<String> propertyPath = root.get("id");
         query.where(builder.equal(propertyPath, id));
         List<User> users = session.createQuery(query).getResultList();
-        User user = users.get(0);
-        Transaction transaction = session.beginTransaction();
-        session.delete(user);
-        transaction.commit();
+        User user = null;
+        if (users.size() == 1) {
+            user = users.get(0);
+            Transaction transaction = session.beginTransaction();
+            session.delete(user);
+            transaction.commit();
+        } else {
+//            TODO throw an exception
+        }
+
         session.close();
     }
 }
