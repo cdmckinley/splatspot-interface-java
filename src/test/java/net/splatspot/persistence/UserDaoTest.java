@@ -80,9 +80,10 @@ public class UserDaoTest {
      */
     @Test
     void updateUserNickname() {
+        int id = 1;
         String newNickname = "Nickname2";
-        userDao.updateUserNickname(1, newNickname);
-        User user = userDao.getUser(1);
+        userDao.updateUserNickname(id, newNickname);
+        User user = userDao.getUser(id);
         assertEquals(user.getNickname(), newNickname);
     }
 
@@ -91,7 +92,8 @@ public class UserDaoTest {
      */
     @Test
     void deleteUser() {
-        userDao.deleteUser(1);
-        assertNull(userDao.getUser(1));
+        int id = 1;
+        userDao.deleteUser(id);
+        assertNull(userDao.getUser(id));
     }
 }
