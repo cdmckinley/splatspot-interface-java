@@ -83,8 +83,9 @@ public class SharedMediaDao {
         SharedMedia sharedMedia = null;
         if (sharedMediaList.size() == 1) {
             sharedMedia = sharedMediaList.get(0);
+            logger.debug("Found SharedMedia on User with ID of " + sharedMedia.getUser().getId());
         } else {
-//            TODO throw an exception
+            logger.debug("No SharedMedia was found");
         }
         session.close();
         return sharedMedia;
@@ -111,9 +112,8 @@ public class SharedMediaDao {
             Transaction transaction = session.beginTransaction();
             session.update(sharedMedia);
             transaction.commit();
-        } else {
-//            TODO throw an exception
         }
+
         session.close();
     }
 
@@ -136,9 +136,8 @@ public class SharedMediaDao {
             Transaction transaction = session.beginTransaction();
             session.delete(sharedMedia);
             transaction.commit();
-        } else {
-//            TODO throw an exception
         }
+
         session.close();
     }
 }

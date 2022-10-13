@@ -85,12 +85,11 @@ public class UserDao {
         User user = null;
         if (users.size() == 1) {
             user = users.get(0);
+            Set<SharedMedia> sharedMediaList = user.getSharedMediaList();
+            logger.debug("Found " + sharedMediaList.size() + " instances of SharedMedia with User ID of " + user.getId());
         } else {
-//            TODO throw an exception
+            logger.debug("No user was found");
         }
-
-        Set<SharedMedia> sharedMediaList = user.getSharedMediaList();
-        logger.debug("Found " + sharedMediaList.size() + " instances of SharedMedia with User ID of " + user.getId());
 
         session.close();
         return user;
@@ -119,8 +118,6 @@ public class UserDao {
             Transaction transaction = session.beginTransaction();
             session.update(user);
             transaction.commit();
-        } else {
-//            TODO throw an exception
         }
 
         session.close();
@@ -145,8 +142,6 @@ public class UserDao {
             Transaction transaction = session.beginTransaction();
             session.delete(user);
             transaction.commit();
-        } else {
-//            TODO throw an exception
         }
 
         session.close();
