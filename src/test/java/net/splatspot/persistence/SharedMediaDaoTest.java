@@ -65,7 +65,8 @@ public class SharedMediaDaoTest {
     @Test
     void deleteSharedMedia() {
         int id = 45;
-        sharedMediaDao.deleteSharedMedia(id);
+        SharedMedia sharedMedia = sharedMediaDao.getSharedMedia(id);
+        sharedMediaDao.deleteSharedMedia(sharedMedia);
         assertNull(sharedMediaDao.getSharedMedia(id));
     }
 }

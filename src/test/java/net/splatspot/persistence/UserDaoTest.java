@@ -93,7 +93,8 @@ public class UserDaoTest {
     @Test
     void deleteUser() {
         int id = 1;
-        userDao.deleteUser(id);
+        User user = userDao.getUser(id);
+        userDao.deleteUser(user);
         assertNull(userDao.getUser(id));
     }
 }
