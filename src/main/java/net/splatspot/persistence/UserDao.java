@@ -90,7 +90,7 @@ public class UserDao {
         }
 
         Set<SharedMedia> sharedMediaList = user.getSharedMediaList();
-        logger.debug("Found " + sharedMediaList.size() + " instances of SharedMedia with ID of " + user.getId());
+        logger.debug("Found " + sharedMediaList.size() + " instances of SharedMedia with User ID of " + user.getId());
 
         session.close();
         return user;
