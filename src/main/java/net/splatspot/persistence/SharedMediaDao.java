@@ -83,6 +83,8 @@ public class SharedMediaDao {
         SharedMedia sharedMedia = null;
         if (sharedMediaList.size() == 1) {
             sharedMedia = sharedMediaList.get(0);
+        } else {
+//            TODO throw an exception
         }
         session.close();
         return sharedMedia;
@@ -102,11 +104,16 @@ public class SharedMediaDao {
         Expression<String> propertyPath = root.get("id");
         query.where(builder.equal(propertyPath, id));
         List<SharedMedia> sharedMediaList = session.createQuery(query).getResultList();
-        SharedMedia sharedMedia = sharedMediaList.get(0);
-        sharedMedia.setLink(link);
-        Transaction transaction = session.beginTransaction();
-        session.update(sharedMedia);
-        transaction.commit();
+        SharedMedia sharedMedia = null;
+        if (sharedMediaList.size() == 1) {
+            sharedMedia = sharedMediaList.get(0);
+            sharedMedia.setLink(link);
+            Transaction transaction = session.beginTransaction();
+            session.update(sharedMedia);
+            transaction.commit();
+        } else {
+//            TODO throw an exception
+        }
         session.close();
     }
 
@@ -123,10 +130,15 @@ public class SharedMediaDao {
         Expression<String> propertyPath = root.get("id");
         query.where(builder.equal(propertyPath, id));
         List<SharedMedia> sharedMediaList = session.createQuery(query).getResultList();
-        SharedMedia sharedMedia = sharedMediaList.get(0);
-        Transaction transaction = session.beginTransaction();
-        session.delete(sharedMedia);
-        transaction.commit();
+        SharedMedia sharedMedia = null;
+        if (sharedMediaList.size() == 1) {
+            sharedMedia = sharedMediaList.get(0);
+            Transaction transaction = session.beginTransaction();
+            session.delete(sharedMedia);
+            transaction.commit();
+        } else {
+//            TODO throw an exception
+        }
         session.close();
     }
 }
