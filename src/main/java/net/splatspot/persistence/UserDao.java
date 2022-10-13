@@ -126,24 +126,13 @@ public class UserDao {
     /**
      * Delete user.
      *
-     * @param id the user id
+     * @param user the User instance
      */
-    public void deleteUser(int id) {
+    public void deleteUser(User user) {
         Session session = sessionFactory.openSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root<User> root = query.from(User.class);
-        Expression<String> propertyPath = root.get("id");
-        query.where(builder.equal(propertyPath, id));
-        List<User> users = session.createQuery(query).getResultList();
-        User user = null;
-        if (users.size() == 1) {
-            user = users.get(0);
-            Transaction transaction = session.beginTransaction();
-            session.delete(user);
-            transaction.commit();
-        }
-
+        Transaction transaction = session.beginTransaction();
+        session.delete(user);
+        transaction.commit();
         session.close();
     }
 }

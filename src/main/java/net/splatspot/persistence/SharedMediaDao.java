@@ -120,24 +120,13 @@ public class SharedMediaDao {
     /**
      * Delete SharedMedia instance.
      *
-     * @param id the SharedMedia id
+     * @param sharedMedia the SharedMedia instance
      */
-    public void deleteSharedMedia(int id) {
+    public void deleteSharedMedia(SharedMedia sharedMedia) {
         Session session = sessionFactory.openSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<SharedMedia> query = builder.createQuery(SharedMedia.class);
-        Root<SharedMedia> root = query.from(SharedMedia.class);
-        Expression<String> propertyPath = root.get("id");
-        query.where(builder.equal(propertyPath, id));
-        List<SharedMedia> sharedMediaList = session.createQuery(query).getResultList();
-        SharedMedia sharedMedia = null;
-        if (sharedMediaList.size() == 1) {
-            sharedMedia = sharedMediaList.get(0);
-            Transaction transaction = session.beginTransaction();
-            session.delete(sharedMedia);
-            transaction.commit();
-        }
-
+        Transaction transaction = session.beginTransaction();
+        session.delete(sharedMedia);
+        transaction.commit();
         session.close();
     }
 }
