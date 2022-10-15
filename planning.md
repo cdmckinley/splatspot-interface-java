@@ -9,14 +9,14 @@
 - Experiment with Java and Discord (and OAuth2?) for Professional Development
 
 ### Week 5
-- Finish weekly work up through at least week 4 ❔
-- Look at and hopefully start Week 5
+- Finish weekly work up through at least week 4 ✅
+- Look at and hopefully start Week 5 ✅
 - Continue Professional Development Activity
 - Design Database ✅
 - Figure out remaining technologies
 
 ### Week 6
-- Get completely up to dat on weekly work
+- Get completely up to date on weekly work
 - Work toward Checkpoint 2
 
 ### Week 7
