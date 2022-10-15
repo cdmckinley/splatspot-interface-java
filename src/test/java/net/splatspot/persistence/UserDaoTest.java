@@ -18,7 +18,7 @@ public class UserDaoTest {
     /**
      * The User dao.
      */
-    UserDao userDao;
+    Dao<User> userDao;
     /**
      * Sets up the UserDao.
      */
@@ -26,7 +26,7 @@ public class UserDaoTest {
     void setUp() {
         Database database = Database.getInstance();
         database.runSQL("cleanup.sql");
-        userDao = new UserDao();
+        userDao = new Dao<>(User.class);
     }
 
     /**
@@ -34,7 +34,7 @@ public class UserDaoTest {
      */
     @Test
     void insertUser() {
-        int id = 0;
+        int id;
 
         User user = new User();
         user.setNickname("JustATest");
@@ -50,9 +50,9 @@ public class UserDaoTest {
         sharedMedia.setUser(user);
         user.addSharedMedia(sharedMedia);
 
-        id = userDao.insertUser(user);
+        id = userDao.insert(user);
 
-        User result = userDao.getUser(id);
+        User result = userDao.getById(id);
         assertEquals("JustATest", result.getNickname());
         assertEquals(1, result.getSharedMediaList().size());
     }
@@ -62,7 +62,7 @@ public class UserDaoTest {
      */
     @Test
     void getAllUsers() {
-        List<User> users = userDao.getAllUsers();
+        List<User> users = userDao.getAll();
         assertNotEquals(0, users.size());
     }
 
@@ -71,8 +71,8 @@ public class UserDaoTest {
      */
     @Test
     void getUser() {
-        User user = userDao.getUser(1);
-        assertNotNull(user);
+        User user = userDao.getById(1);
+        assertEquals("Nick", user.getNickname());
     }
 
     /**
@@ -82,9 +82,11 @@ public class UserDaoTest {
     void updateUserNickname() {
         int id = 1;
         String newNickname = "Nickname2";
-        userDao.updateUserNickname(id, newNickname);
-        User user = userDao.getUser(id);
-        assertEquals(user.getNickname(), newNickname);
+        User user = userDao.getById(id);
+        user.setNickname(newNickname);
+        userDao.update(user);
+        User user2 = userDao.getById(id);
+        assertEquals(user2.getNickname(), newNickname);
     }
 
     /**
@@ -93,8 +95,28 @@ public class UserDaoTest {
     @Test
     void deleteUser() {
         int id = 1;
-        User user = userDao.getUser(id);
-        userDao.deleteUser(user);
-        assertNull(userDao.getUser(id));
+        User user = userDao.getById(id);
+        userDao.delete(user);
+        assertNull(userDao.getById(id));
+    }
+
+    @Test
+    void returnNullWhenNoRecords() {
+        Database database = Database.getInstance();
+        database.runSQL("empty_tables.sql");
+        List<User> userList = userDao.getAll();
+        assertTrue(userList.isEmpty());
+    }
+
+    @Test
+    void returnNullWhenNoRecordOfId() {
+        User user = userDao.getById(404);
+        assertNull(user);
+    }
+
+    @Test
+    void returnNullWhenNoMatchingRecords() {
+        List<User> userList = userDao.getByProperty("nickname", "Agent 404");
+        assertTrue(userList.isEmpty());
     }
 }

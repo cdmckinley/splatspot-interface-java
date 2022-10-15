@@ -12,44 +12,44 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class SharedMediaDaoTest {
-    SharedMediaDao sharedMediaDao;
+    Dao<SharedMedia> sharedMediaDao;
 
     @BeforeEach
     void setup() {
         Database database = Database.getInstance();
         database.runSQL("cleanup.sql");
-        sharedMediaDao = new SharedMediaDao();
+        sharedMediaDao = new Dao<>(SharedMedia.class);
     }
 
     @Test
     void insertSharedMedia() {
-        int id = 0;
+        int id;
         String testLink = "https://twitter.com/NintendoAmerica";
         SharedMedia sharedMedia = new SharedMedia();
         sharedMedia.setLink(testLink);
 
-        UserDao userDao = new UserDao();
-        User user = userDao.getUser(2);
+        Dao<User> userDao = new Dao<>(User.class);
+        User user = userDao.getById(2);
 
         sharedMedia.setUser(user);
         user.addSharedMedia(sharedMedia);
 
-        id = sharedMediaDao.insertSharedMedia(sharedMedia);
+        id = sharedMediaDao.insert(sharedMedia);
 
-        SharedMedia result = sharedMediaDao.getSharedMedia(id);
+        SharedMedia result = sharedMediaDao.getById(id);
         assertEquals(testLink, result.getLink());
         assertEquals(user.getNickname(), result.getUser().getNickname());
     }
 
     @Test
     void getAllSharedMedia() {
-        List<SharedMedia> sharedMediaList = sharedMediaDao.getAllSharedMedia();
+        List<SharedMedia> sharedMediaList = sharedMediaDao.getAll();
         assertEquals(3, sharedMediaList.size());
     }
 
     @Test
     void getSharedMedia() {
-        SharedMedia sharedMedia = sharedMediaDao.getSharedMedia(46);
+        SharedMedia sharedMedia = sharedMediaDao.getById(46);
         assertEquals("https://twitter.com/discord", sharedMedia.getLink());
     }
 
@@ -57,16 +57,38 @@ public class SharedMediaDaoTest {
     void updateSharedMediaLink() {
         int id = 47;
         String newLink = "https://twitter.com/NintendoAmerica";
-        sharedMediaDao.updateMediaLink(id, newLink);
-        SharedMedia sharedMedia = sharedMediaDao.getSharedMedia(id);
-        assertEquals(newLink, sharedMedia.getLink());
+        SharedMedia sharedMedia = sharedMediaDao.getById(id);
+        sharedMedia.setLink(newLink);
+        sharedMediaDao.update(sharedMedia);
+        SharedMedia sharedMedia2 = sharedMediaDao.getById(id);
+        assertEquals(newLink, sharedMedia2.getLink());
     }
 
     @Test
     void deleteSharedMedia() {
         int id = 45;
-        SharedMedia sharedMedia = sharedMediaDao.getSharedMedia(id);
-        sharedMediaDao.deleteSharedMedia(sharedMedia);
-        assertNull(sharedMediaDao.getSharedMedia(id));
+        SharedMedia sharedMedia = sharedMediaDao.getById(id);
+        sharedMediaDao.delete(sharedMedia);
+        assertNull(sharedMediaDao.getById(id));
+    }
+
+    @Test
+    void returnNullWhenNoRecords() {
+        Database database = Database.getInstance();
+        database.runSQL("empty_tables.sql");
+        List<SharedMedia> sharedMediaList = sharedMediaDao.getAll();
+        assertTrue(sharedMediaList.isEmpty());
+    }
+
+    @Test
+    void returnNullWhenNoRecordOfId() {
+        SharedMedia sharedMedia = sharedMediaDao.getById(404);
+        assertNull(sharedMedia);
+    }
+
+    @Test
+    void returnNullWhenNoMatchingRecords() {
+        List<SharedMedia> sharedMediaList = sharedMediaDao.getByProperty("link", "example.org");
+        assertTrue(sharedMediaList.isEmpty());
     }
 }
