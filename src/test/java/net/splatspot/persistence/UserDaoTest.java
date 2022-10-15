@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * The test for UserDao.
+ * The test for Dao with User.
  */
 public class UserDaoTest {
 
@@ -54,7 +54,7 @@ public class UserDaoTest {
 
         User result = userDao.getById(id);
         assertEquals("JustATest", result.getNickname());
-        assertEquals(1, result.getSharedMediaList().size());
+        assertEquals(1, result.getSharedMediaSet().size());
     }
 
     /**
