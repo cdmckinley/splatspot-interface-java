@@ -261,3 +261,21 @@ I figured out that mapping with both annotations and xml is redundant, via:
 - The class website, YouTube, and Slack
 
 I'm still figuring out how to enable EAGER fetching. I must be missing something.
+
+10/13 through 10/15
+
+***Yes!*** I figured out why the `LazyInitializationException` was happening. I had redundant mappings through XML that weren't explicitly set to `EAGER`, and setting mapping to come from the existing annotations solved that problem. This was quite a learning experience, teaching me to pay more attention to the material.
+
+I also made a generic dao, based partially on the one in one of the week's YouTube  videos.
+
+I used these resources in the past few days:
+- [JUnit assert](https://junit.org/junit4/javadoc/4.8/org/junit/Assert.html)
+- Hibernate docs
+  - [SQLGrammarException](https://docs.jboss.org/hibernate/orm/3.2/api/org/hibernate/exception/SQLGrammarException.html). I know I used this but I forget what for.
+  - [Path](https://docs.jboss.org/hibernate/jpa/2.2/api/javax/persistence/criteria/Path.html#get-java.lang.String-), mostly looking at `get` method
+  - [Session](https://docs.jboss.org/hibernate/orm/5.2/javadocs/org/hibernate/Session.html)
+- Oracle JavaDocs
+  - [Generic types](https://docs.oracle.com/javase/tutorial/java/generics/types.html)
+  - [Class](https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html) to get the simple name of a class (though I believe I've since removed the DAO class that used it)
+  - [List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html)
+- The course website, YouTube channel, and Slack
