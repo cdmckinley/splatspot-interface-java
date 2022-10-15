@@ -45,6 +45,17 @@ public class Dao<T> {
         return SessionFactoryProvider.getSessionFactory().openSession();
     }
 
+    public int insert(T entity) {
+        int id;
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        id = (int)session.save(entity);
+        transaction.commit();
+        logger.debug("Added entity of type " + type + " with id of " + id);
+        return id;
+
+    }
+
     /**
      * Gets an entity by id.
      *
@@ -52,8 +63,9 @@ public class Dao<T> {
      * @return the entity
      */
     public T getById(int id) {
+        T entity;
         Session session = getSession();
-        T entity = session.get(type, id);
+        entity = session.get(type, id);
         session.close();
         return entity;
     }
@@ -64,11 +76,12 @@ public class Dao<T> {
      * @return the all
      */
     public List<T> getAll() {
+        List<T> entityList;
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
-        Root<T> root = query.from(type);
-        List<T> entityList = session.createQuery(query).getResultList();
+        query.from(type);
+        entityList = session.createQuery(query).getResultList();
         session.close();
         logger.debug("Found " + entityList.size() + " entities of class " + type.getName());
         return entityList;
@@ -82,13 +95,14 @@ public class Dao<T> {
      * @return list of users that have that property
      */
     public List<T> getByProperty(String property, Object expectedValue) {
+        List<T> entityList;
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
         Expression<String> propertyPath = root.get(property);
         query.where(builder.equal(propertyPath, expectedValue));
-        List<T> entityList = session.createQuery(query).getResultList();
+        entityList = session.createQuery(query).getResultList();
         session.close();
         logger.debug("Found " + entityList.size() + " entities of class " + type.getName() + " with property " +
                 property + " having value of " + expectedValue);
@@ -100,7 +114,7 @@ public class Dao<T> {
      *
      * @param entity the entity
      */
-    public void updateEntity(T entity) {
+    public void update(T entity) {
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         session.update(entity);
