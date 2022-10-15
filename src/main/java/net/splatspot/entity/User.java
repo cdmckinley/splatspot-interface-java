@@ -57,9 +57,11 @@ public class User {
     @Column(name = "share_when_ready_to_play", nullable = false, length = 1)
     private boolean shareWhenReadyToPlay;
 
-    // TODO make JavaDoc for getters and setters
+    /**
+     * The set of SharedMedia from the User
+     */
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<SharedMedia> sharedMediaList =  new HashSet<>();
+    private Set<SharedMedia> sharedMediaSet =  new HashSet<>();
 
     // TODO Add a field to identify a user by Discord login
 
@@ -196,12 +198,22 @@ public class User {
         this.shareWhenReadyToPlay = choice;
     }
 
-    public Set<SharedMedia> getSharedMediaList() {
-        return sharedMediaList;
+    /**
+     * Gets shared media set.
+     *
+     * @return the shared media set
+     */
+    public Set<SharedMedia> getSharedMediaSet() {
+        return sharedMediaSet;
     }
 
-    public void setSharedMediaList(Set<SharedMedia> sharedMedia) {
-        this.sharedMediaList = sharedMedia;
+    /**
+     * Sets shared media set.
+     *
+     * @param sharedMedia the shared media
+     */
+    public void setSharedMediaSet(Set<SharedMedia> sharedMedia) {
+        this.sharedMediaSet = sharedMedia;
     }
 
     /**
@@ -210,7 +222,7 @@ public class User {
      * @param sharedMedia the shared media
      */
     public void addSharedMedia(SharedMedia sharedMedia) {
-        sharedMediaList.add(sharedMedia);
+        sharedMediaSet.add(sharedMedia);
         sharedMedia.setUser(this);
     }
 
@@ -220,7 +232,7 @@ public class User {
      * @param sharedMedia the shared media
      */
     public void removeSharedMedia(SharedMedia sharedMedia) {
-        sharedMediaList.remove(sharedMedia);
+        sharedMediaSet.remove(sharedMedia);
         sharedMedia.setUser(null);
     }
 
