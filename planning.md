@@ -27,9 +27,10 @@ Completion status:
 ### Week 7
 - Submit checkpoint 2 🕒
 - Submit Prof Dev Activity presentation 🕒
+- Get completely up to date on weekly work, including Week 7 ✅
 
 ### Week 8
-- Get completely up to date on weekly work, including Week 8
+- ~~Get completely up to date on weekly work, including Week 8~~ Complete week 8 
 - Figure out remaining technologies
 - Submit checkpoint 2
 
