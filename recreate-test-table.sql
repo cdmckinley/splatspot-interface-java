@@ -21,14 +21,17 @@ CREATE TABLE `shared_media` (
     `user_id` int NOT NULL,
     `link` varchar(100) NOT NULL,
     `id` int NOT NULL AUTO_INCREMENT,
+    `description` varchar(500) DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `shared_media_user_null_fk` (`user_id`),
     CONSTRAINT `shared_media_user_null_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-)
+);
 
 -- Insert test data
 INSERT INTO USER VALUES (1,'Nick','SW-1111-1111-1111','You''reIt','0123','n','y'),
                         (2,'Nicholas','SW-2222-2222-2222','NoTagBacks','4567','y','n');
-INSERT INTO shared_media VALUES (1, 'https://twitter.com/SlackHQ', 45),
-                                (1, 'https://twitter.com/discord', 46),
-                                (2, 'https://twitter.com/SplatoonNA', 47);
+INSERT INTO shared_media VALUES (1, 'https://twitter.com/SlackHQ', 45, null),
+                                (1, 'https://twitter.com/discord', 46, null),
+                                (2, 'https://twitter.com/SplatoonNA', 47, null),
+                                (2, 'https://twitter.com/SplatoonNA/status/1578369634981609477?s=20&t=MzavfhEJlDwBa03jAGM-Zg',
+                                    50, 'Gotta catch ''em all, amiright?');
