@@ -279,3 +279,15 @@ I used these resources in the past few days:
   - [Class](https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html) to get the simple name of a class (though I believe I've since removed the DAO class that used it)
   - [List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html)
 - The course website, YouTube channel, and Slack
+
+### Eighth Week
+
+10/16
+
+I finished work for Week 6 and Week 7 today! I really just used the resources provided by the class today. It was great to work with AWS again!
+
+10/17
+
+I'm spending today doing some final touches to my project before week 8 starts. I'm preparing for Checkpoint 2, added a new property to `SharedMedia`, updated my SQL files, and generated an ERD.
+
+I still plan to catch up on previous feedback, and begin work on Week 8!
