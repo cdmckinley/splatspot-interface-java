@@ -59,7 +59,7 @@ public class SharedMediaDaoTest {
     @Test
     void getAllSharedMedia() {
         List<SharedMedia> sharedMediaList = sharedMediaDao.getAll();
-        assertEquals(3, sharedMediaList.size());
+        assertEquals(4, sharedMediaList.size());
     }
 
     /**
