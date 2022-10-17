@@ -11,9 +11,18 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 
+/**
+ * The test for Dao with SharedMedia.
+ */
 public class SharedMediaDaoTest {
+    /**
+     * The Shared media dao.
+     */
     Dao<SharedMedia> sharedMediaDao;
 
+    /**
+     * Sets up the SharedMedia Dao.
+     */
     @BeforeEach
     void setup() {
         Database database = Database.getInstance();
@@ -21,6 +30,9 @@ public class SharedMediaDaoTest {
         sharedMediaDao = new Dao<>(SharedMedia.class);
     }
 
+    /**
+     * Tests inserting a SharedMedia instance.
+     */
     @Test
     void insertSharedMedia() {
         int id;
@@ -41,18 +53,27 @@ public class SharedMediaDaoTest {
         assertEquals(user.getNickname(), result.getUser().getNickname());
     }
 
+    /**
+     * Tests getting all shared media.
+     */
     @Test
     void getAllSharedMedia() {
         List<SharedMedia> sharedMediaList = sharedMediaDao.getAll();
         assertEquals(3, sharedMediaList.size());
     }
 
+    /**
+     * Tests getting shared media by ID.
+     */
     @Test
     void getSharedMedia() {
         SharedMedia sharedMedia = sharedMediaDao.getById(46);
         assertEquals("https://twitter.com/discord", sharedMedia.getLink());
     }
 
+    /**
+     * Tests updating a link for SharedMedia.
+     */
     @Test
     void updateSharedMediaLink() {
         int id = 47;
@@ -64,14 +85,23 @@ public class SharedMediaDaoTest {
         assertEquals(newLink, sharedMedia2.getLink());
     }
 
+    /**
+     * Tests deleting shared media, without deleting the user
+     */
     @Test
     void deleteSharedMedia() {
-        int id = 45;
-        SharedMedia sharedMedia = sharedMediaDao.getById(id);
+        Dao<User> userDao = new Dao<>(User.class);
+        int sharedMediaId = 45;
+        SharedMedia sharedMedia = sharedMediaDao.getById(sharedMediaId);
+        User user = sharedMedia.getUser();
         sharedMediaDao.delete(sharedMedia);
-        assertNull(sharedMediaDao.getById(id));
+        assertNull(sharedMediaDao.getById(sharedMediaId));
+        assertEquals(user.getNickname(), userDao.getById(user.getId()).getNickname());
     }
 
+    /**
+     * Tests returning null when there ar no record of SharedMedia.
+     */
     @Test
     void returnNullWhenNoRecords() {
         Database database = Database.getInstance();
@@ -80,12 +110,18 @@ public class SharedMediaDaoTest {
         assertTrue(sharedMediaList.isEmpty());
     }
 
+    /**
+     * Return null when no SharedMedia record has an Id.
+     */
     @Test
     void returnNullWhenNoRecordOfId() {
         SharedMedia sharedMedia = sharedMediaDao.getById(404);
         assertNull(sharedMedia);
     }
 
+    /**
+     * Tests returning null when no record match an expected property.
+     */
     @Test
     void returnNullWhenNoMatchingRecords() {
         List<SharedMedia> sharedMediaList = sharedMediaDao.getByProperty("link", "example.org");

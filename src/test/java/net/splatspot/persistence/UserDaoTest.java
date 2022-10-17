@@ -6,7 +6,9 @@ import net.splatspot.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,6 +21,7 @@ public class UserDaoTest {
      * The User dao.
      */
     Dao<User> userDao;
+
     /**
      * Sets up the UserDao.
      */
@@ -94,12 +97,24 @@ public class UserDaoTest {
      */
     @Test
     void deleteUser() {
+        Dao<SharedMedia> sharedMediaDao = new Dao<>(SharedMedia.class);
         int id = 1;
         User user = userDao.getById(id);
+        Set<SharedMedia> sharedMediaSet = user.getSharedMediaSet();
+        Set<Integer> sharedMediaIdSet = new HashSet<>();
+        for (SharedMedia sharedMedia : sharedMediaSet) {
+            sharedMediaIdSet.add(sharedMedia.getId());
+        }
         userDao.delete(user);
         assertNull(userDao.getById(id));
+        for (int sharedMediaId : sharedMediaIdSet) {
+            assertNull(sharedMediaDao.getById(sharedMediaId));
+        }
     }
 
+    /**
+     * Returns null when no User records are found.
+     */
     @Test
     void returnNullWhenNoRecords() {
         Database database = Database.getInstance();
@@ -108,12 +123,18 @@ public class UserDaoTest {
         assertTrue(userList.isEmpty());
     }
 
+    /**
+     * Returns null when no record of a User with an ID is found.
+     */
     @Test
     void returnNullWhenNoRecordOfId() {
         User user = userDao.getById(404);
         assertNull(user);
     }
 
+    /**
+     * Returns null when no records match an expected property.
+     */
     @Test
     void returnNullWhenNoMatchingRecords() {
         List<User> userList = userDao.getByProperty("nickname", "Agent 404");
