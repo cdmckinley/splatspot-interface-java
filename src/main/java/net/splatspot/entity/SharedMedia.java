@@ -33,6 +33,11 @@ public class SharedMedia {
     private String link;
 
     /**
+     * The description of the media in the link
+     */
+    private String description;
+
+    /**
      * Instantiates a new Shared media object.
      */
     public SharedMedia() {
@@ -91,5 +96,23 @@ public class SharedMedia {
      */
     public void setLink(String link) {
         this.link = link;
+    }
+
+    /**
+     * Gets the description.
+     *
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Sets the description.
+     *
+     * @param description the description
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
