@@ -3,41 +3,26 @@
 ## Minimum Viable Product
 
 ### User Auth:
-- (external service) Uses Discord to handle email and password, so we don't have to.
-- Login through Discord via OAuth2.
+- (external service) Uses AWS to handle email and password, so we don't have to.
+- Connect account to Discord account using OAuth2.
 
-### Player-information:
+### User-information:
 - (stored in our Database, referencing an external service) Store the information by Discord user.
 - Provide a form to input the following game information:
-  - Friend code and (maybe) name from Nintendo Switch profile.
-  - SplashTag Name (in-game name), and potentially tag (the 4-digit number), for identifying the player.
-  - Any user configurations/preferences.
+  - Friend code and (maybe) name from Nintendo Switch profile. Used by users to connect to each other if shared.
+  - SplashTag Name (in-game name), and potentially tag (the 4-digit number). Used for identifying the Splatoon 3 player.
+  - Any user configurations/preferences, such as automatically sharing friend code, or broadcasting when they're ready to play.
 
 ### Finding a game:
 - (Its own page, making use of Java Discord API)
-- One or more of the following:
-  - Matchmaking (complicated):
-    - Let the user que up for matchmaking in a team (default of 4).
-    - Either:
-      - Match teams of 4 players, and a game of 2 teams.
-      - Match a group of 8 players, and randomly assign teams.
-    - In either case:
-      - Provide a host with information to host the others, such as a random passcode.
-      - Let the host choose someone else to host.
-      - Give the host's friend code to other players, so everyone can connect.
   - Status broadcasting (more simple):
     - If the user chooses, let the bot broadcast that the user is in a room looking for a game.
     - Stop broadcasting when the group is full.
 
 ## Stretch Goals
-### Finding a game:
-- Implement both matchmaking and status broadcasting
 
 ### Media sharing:
 - Allow users to share and browse:
-  - Replay codes
-    - stored in code form
-    - viewable by entering the code in Splatoon 3
   - Video captures
     - accessed through YouTube and Twitter links
     - potentially features embedded information
@@ -47,4 +32,4 @@
   - Memes
     - accessed through Twitter (and maybe an image-hosting site?)
     - potentially features embedded information
-- Post new media to a Discord channel
+- Post new media to a Discord feed
