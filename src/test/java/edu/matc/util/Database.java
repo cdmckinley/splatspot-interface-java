@@ -29,8 +29,11 @@ public class Database implements PropertiesLoader {
 
     // private constructor prevents instantiating this class anywhere else
     private Database() {
-        properties = loadProperties("/database.properties");
-
+        try {
+            properties = loadProperties("/database.properties");
+        } catch (Exception exception) {
+            logger.error(exception.getClass().getName() + " occurred.", exception);
+        }
     }
 
     // get the only Database object available
