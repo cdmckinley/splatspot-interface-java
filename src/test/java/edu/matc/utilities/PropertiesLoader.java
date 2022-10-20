@@ -1,12 +1,13 @@
 package edu.matc.utilities;
 
-import java.io.*;
 import java.util.*;
 
 /**
  * This interface contains a default method that can be used anywhere a Properties
  * object is needed to be loaded.
  * @author Eric Knapp
+ *
+ * Modified by Craig McKinley, to throw exceptions instead of printing their stack trace
  *
  */
 public interface PropertiesLoader{
@@ -18,15 +19,11 @@ public interface PropertiesLoader{
      * @return a populated Properties instance or an empty Properties instance if
      * the file path was not found.
      */
-    default Properties loadProperties(String propertiesFilePath){
+    default Properties loadProperties(String propertiesFilePath) throws Exception{
         Properties properties = new Properties();
-        try {
-            properties.load(this.getClass().getResourceAsStream(propertiesFilePath));
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
+
+        properties.load(this.getClass().getResourceAsStream(propertiesFilePath));
+
         return properties;
     }
 }
