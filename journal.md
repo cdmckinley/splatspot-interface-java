@@ -291,3 +291,16 @@ I finished work for Week 6 and Week 7 today! I really just used the resources pr
 I'm spending today doing some final touches to my project before week 8 starts. I'm preparing for Checkpoint 2, added a new property to `SharedMedia`, updated my SQL files, and generated an ERD.
 
 I still plan to catch up on previous feedback, and begin work on Week 8!
+
+10/20
+
+I worked on Exercise 8 today. I got to learn about using web services with Java, and some quirks that can sometimes come with either the API I was using, or RoboPOJO generator's generated classes.
+Resources used:
+- I used the [Star Trek API](http://stapi.co/) and its documentation
+- Oracle Docs
+  - [Integer](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html)
+  - [Testnstance Lifecycle](https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/TestInstance.Lifecycle.html)
+  - [WebTarget](https://docs.oracle.com/javaee/7/api/javax/ws/rs/client/WebTarget.html) as art of problem-solving
+  - [SyncInvoker](https://docs.oracle.com/javaee/7/api/javax/ws/rs/client/SyncInvoker.html) as art of problem-solving
+  - [Client](https://docs.oracle.com/javaee/7/api/javax/ws/rs/client/Client.html) as part of problem-solving
+- [Mozilla's docs on HTTP 406 code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406) as art of problem-solving
