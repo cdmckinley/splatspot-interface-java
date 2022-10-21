@@ -7,7 +7,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.auth.*;
-import edu.matc.util.PropertiesLoader;
+import edu.matc.utilities.PropertiesLoader;
 import org.apache.commons.io.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -64,7 +64,13 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     @Override
     public void init() throws ServletException {
         super.init();
-        loadProperties();
+        try {
+            properties = loadProperties("/cognito.properties");
+        } catch (Exception exception) {
+            logger.error("An " + exception.getClass().getName() +
+                    " occurred. Make sure a properly formatted 'cognito.properties' file exists and is readable",
+                    exception);
+        }
         loadKey();
     }
 
@@ -231,28 +237,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             logger.error("Cannot load json..." + ioException.getMessage(), ioException);
         } catch (Exception e) {
             logger.error("Error loading json" + e.getMessage(), e);
-        }
-    }
-
-    /**
-     * Read in the cognito props file and get/set the client id, secret, and required urls
-     * for authenticating a user.
-     */
-    // TODO This code appears in a couple classes, consider using a startup servlet similar to adv java project
-    private void loadProperties() {
-        try {
-            properties = loadProperties("/cognito.properties");
-            CLIENT_ID = properties.getProperty("client.id");
-            CLIENT_SECRET = properties.getProperty("client.secret");
-            OAUTH_URL = properties.getProperty("oauthURL");
-            LOGIN_URL = properties.getProperty("loginURL");
-            REDIRECT_URL = properties.getProperty("redirectURL");
-            REGION = properties.getProperty("region");
-            POOL_ID = properties.getProperty("poolId");
-        } catch (IOException ioException) {
-            logger.error("Cannot load properties..." + ioException.getMessage(), ioException);
-        } catch (Exception e) {
-            logger.error("Error loading properties" + e.getMessage(), e);
         }
     }
 }
