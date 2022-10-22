@@ -83,11 +83,16 @@ public class Auth extends HttpServlet implements PropertiesLoader {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        final String indexPage = "index.jsp";
+        final String errorPage = "error.jsp";
+        final String loginPage = "login.jsp";
+
         String authCode = req.getParameter("code");
         String userName = null;
 
         if (authCode == null) {
-            //TODO forward to an error page or back to the login
+            //TODO update this code block if need-be
+            forwardToPage(req, resp, loginPage);
         } else {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
@@ -96,15 +101,21 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 req.setAttribute("userName", userName);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
-                //TODO forward to an error page
+                // TODO Give the user more information on the error?
+                forwardToPage(req, resp, errorPage);
             } catch (InterruptedException e) {
                 logger.error("Error getting token from Cognito oauth url " + e.getMessage(), e);
-                //TODO forward to an error page
+                // TODO Give the user more information on the error?
+                forwardToPage(req, resp, errorPage);
             }
         }
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
-        dispatcher.forward(req, resp);
+        forwardToPage(req, resp, indexPage);
+    }
 
+    protected void forwardToPage(HttpServletRequest req, HttpServletResponse res, String pageName) throws ServletException,
+            IOException {
+        RequestDispatcher dispatcher = req.getRequestDispatcher(pageName);
+        dispatcher.forward(req, res);
     }
 
     /**
