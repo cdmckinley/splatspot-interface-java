@@ -62,3 +62,6 @@ fabric.properties
 
 # AWS Cognito properties
 **/cognito.properties
+
+# log files
+logs
