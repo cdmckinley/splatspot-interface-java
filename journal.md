@@ -300,7 +300,25 @@ Resources used:
 - Oracle Docs
   - [Integer](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html)
   - [Testnstance Lifecycle](https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/TestInstance.Lifecycle.html)
-  - [WebTarget](https://docs.oracle.com/javaee/7/api/javax/ws/rs/client/WebTarget.html) as art of problem-solving
-  - [SyncInvoker](https://docs.oracle.com/javaee/7/api/javax/ws/rs/client/SyncInvoker.html) as art of problem-solving
+  - [WebTarget](https://docs.oracle.com/javaee/7/api/javax/ws/rs/client/WebTarget.html) as part of problem-solving
+  - [SyncInvoker](https://docs.oracle.com/javaee/7/api/javax/ws/rs/client/SyncInvoker.html) as part of problem-solving
   - [Client](https://docs.oracle.com/javaee/7/api/javax/ws/rs/client/Client.html) as part of problem-solving
-- [Mozilla's docs on HTTP 406 code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406) as art of problem-solving
+- [Mozilla's docs on HTTP 406 code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406) as part of problem-solving
+
+10/21 through 10/23
+
+I've been working toward Checkpoint 3, and thus working on the project. This includes adding more pages, and implementing Cognito.
+
+I used these resources:
+- AWS documentation
+  - [User Pool attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html)
+  - Trying to figure out what services I was getting charged for
+    - [Check for Active Resources](https://aws.amazon.com/premiumsupport/knowledge-center/check-for-active-resources/)
+- Tutorialspoint
+  - [JSTL 'set' tag](https://www.tutorialspoint.com/jsp/jstl_core_set_tag.htm)
+  - [Standard Tags](https://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm) when trying to find an alternative to `if`/`else`, though I went with ore of a `switch` alternative
+  - [Choose](https://www.tutorialspoint.com/jsp/jstl_core_choose_tag.htm)
+- [Session tracking](https://www.javatpoint.com/http-session-in-session-tracking)
+- Bootstrap [Colored links](https://getbootstrap.com/docs/5.0/helpers/colored-links/)
+- [This](https://stackoverflow.com/questions/2523262/how-to-serve-static-content-from-tomcat) and [also this](https://stackoverflow.com/questions/2521606/spring-mvc-absolute-url-problem/2521611#2521611) for figuring out static content in TomCat
+- The course website, YouTube, and Slack
