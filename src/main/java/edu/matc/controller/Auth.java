@@ -66,6 +66,13 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         super.init();
         try {
             properties = loadProperties("/cognito.properties");
+            CLIENT_ID = properties.getProperty("client.id");
+            CLIENT_SECRET = properties.getProperty("client.secret");
+            OAUTH_URL = properties.getProperty("oauthURL");
+            LOGIN_URL = properties.getProperty("loginURL");
+            REDIRECT_URL = properties.getProperty("redirectURL");
+            REGION = properties.getProperty("region");
+            POOL_ID = properties.getProperty("poolId");
         } catch (Exception exception) {
             logger.error("An " + exception.getClass().getName() +
                     " occurred. Make sure a properly formatted 'cognito.properties' file exists and is readable",
@@ -85,7 +92,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final String indexPage = "index.jsp";
         final String errorPage = "error.jsp";
-        final String loginPage = "login.jsp";
+        final String loginPage = "login";
 
         String authCode = req.getParameter("code");
         String userName = null;
@@ -108,8 +115,8 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 // TODO Give the user more information on the error?
                 forwardToPage(req, resp, errorPage);
             }
+            forwardToPage(req, resp, indexPage);
         }
-        forwardToPage(req, resp, indexPage);
     }
 
     protected void forwardToPage(HttpServletRequest req, HttpServletResponse res, String pageName) throws ServletException,
