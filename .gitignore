@@ -59,3 +59,6 @@ fabric.properties
 
 # log4J2 properties
 **/log4j2.properties
+
+# AWS Cognito properties
+**/cognito.properties
