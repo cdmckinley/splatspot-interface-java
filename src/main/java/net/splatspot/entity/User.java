@@ -22,6 +22,18 @@ public class User {
     private int id;
 
     /**
+     * The user's username, used to integrate with AWS Cognito
+     */
+    @Column(length = 128, nullable = false)
+    private String username;
+
+    /**
+     * The user's ID on Discord's network
+     */
+    @Column(name = "discord_id", length = 11)
+    private String discordId;
+
+    /**
      * The user's nickname
      */
     @Column(name = "nickname", length = 25)
@@ -88,6 +100,38 @@ public class User {
      */
     public int getId() {
         return id;
+    }
+
+    /**
+     * Gets the user's username associated with AWS Cognito
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * Sets the user's username to associate them with AWS Cognito
+     * @param username the username
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * Gets the user's ID associated with Discord
+     * @return the Discord ID
+     */
+    public String getDiscordId() {
+        return discordId;
+    }
+
+    /**
+     * Sets the user's ID to associate them with Discord
+     * @param discordId the Discord ID
+     */
+    public void setDiscordId(String discordId) {
+        this.discordId = discordId;
     }
 
     /**
