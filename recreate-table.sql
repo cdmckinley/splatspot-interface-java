@@ -8,6 +8,8 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
     `id` int NOT NULL AUTO_INCREMENT,
+    `username` varchar(128) NOT NULL,
+    `discord_id` char(17) DEFAULT NULL,
     `nickname` varchar(25) DEFAULT NULL,
     `friend_code` varchar(17) DEFAULT NULL,
     `splash_tag_name` varchar(10) DEFAULT NULL,
