@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -90,22 +91,24 @@ public class Auth extends HttpServlet implements PropertiesLoader {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final String indexPage = "index.jsp";
-        final String errorPage = "error.jsp";
-        final String loginPage = "login";
+        final String indexPage = "/home";
+        final String errorPage = "/error";
+        final String loginPage = "/login";
 
         String authCode = req.getParameter("code");
         String userName = null;
 
         if (authCode == null) {
             //TODO update this code block if need-be
-            forwardToPage(req, resp, loginPage);
+            redirectToPage(req, resp, loginPage);
         } else {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
                 userName = validate(tokenResponse);
-                req.setAttribute("userName", userName);
+                // TODO use or remove: req.setAttribute("userName", userName);
+                HttpSession session = req.getSession();
+                session.setAttribute("userName", userName);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 // TODO Give the user more information on the error?
@@ -115,14 +118,30 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 // TODO Give the user more information on the error?
                 forwardToPage(req, resp, errorPage);
             }
-            forwardToPage(req, resp, indexPage);
+            redirectToPage(req, resp, indexPage);
         }
     }
 
-    protected void forwardToPage(HttpServletRequest req, HttpServletResponse res, String pageName) throws ServletException,
+    /**
+     * Forwards to another page
+     * @param req the HTTP request
+     * @param resp the HTTP response
+     * @param pageName the name of the page to forward to
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void forwardToPage(HttpServletRequest req, HttpServletResponse resp, String pageName) throws ServletException,
             IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher(pageName);
-        dispatcher.forward(req, res);
+        dispatcher.forward(req, resp);
+    }
+
+    protected void redirectToPage(HttpServletRequest req, HttpServletResponse resp, String pageName) throws IOException{
+        String urlParam = "/auth";
+        String url = req.getRequestURL().toString();
+        url = url.substring(0, url.length() - urlParam.length());
+        url = url + pageName;
+        resp.sendRedirect(url);
     }
 
     /**
