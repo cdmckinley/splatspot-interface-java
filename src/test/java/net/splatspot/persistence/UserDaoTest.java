@@ -40,6 +40,7 @@ public class UserDaoTest {
         int id;
 
         User user = new User();
+        user.setUsername("test_user");
         user.setNickname("JustATest");
         user.setFriendCode("SW-5555-5555-5555");
         user.setSplashTagName("TestFirer");
