@@ -30,11 +30,13 @@ public class SharedMedia {
     /**
      * The shared link
      */
+    @Column(length = 100)
     private String link;
 
     /**
      * The description of the media in the link
      */
+    @Column(length = 500)
     private String description;
 
     /**
