@@ -322,3 +322,20 @@ I used these resources:
 - Bootstrap [Colored links](https://getbootstrap.com/docs/5.0/helpers/colored-links/)
 - [This](https://stackoverflow.com/questions/2523262/how-to-serve-static-content-from-tomcat) and [also this](https://stackoverflow.com/questions/2521606/spring-mvc-absolute-url-problem/2521611#2521611) for figuring out static content in TomCat
 - The course website, YouTube, and Slack
+
+### Ninth Week
+
+10/25
+
+Today I implemented sessions for logins, including adding new fields to soon use in the database. I also added controllers for the 'home' and 'error' pages to make use of sessions, and used JSTL to make some links on my pages work.
+
+References used:
+- [Max length of a Cognito username](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.html)
+- What I'm hoping is a consistent [length of Discord's user IDs](https://discord.com/developers/docs/resources/user). I couldn't find a specified length through a search, but the ID presented is 11 characters.
+- [HTTP Session tracking](https://www.javatpoint.com/http-session-in-session-tracking), which I shared in Slack
+- Java Documentation:
+  - [HttpSession](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSession.html)
+  - [HttpServletRequest](https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html)
+  - [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html) when looking for `substring` syntax, and other String-manipulation methods that I don't see (I can work without them as far as I can tell)
+- [JSTL `url` tag](https://www.tutorialspoint.com/jsp/jstl_core_url_tag.htm)
+- The course website, YouTube, and Slack
