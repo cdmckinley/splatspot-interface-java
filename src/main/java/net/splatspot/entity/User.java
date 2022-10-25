@@ -75,8 +75,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<SharedMedia> sharedMediaSet =  new HashSet<>();
 
-    // TODO Add a field to identify a user by Discord login
-
     /**
      * Instantiates a new User.
      */
