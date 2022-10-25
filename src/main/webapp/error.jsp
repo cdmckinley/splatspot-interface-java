@@ -16,7 +16,7 @@
       happened instead.
     </p>
     <%-- TODO Update link --%>
-    <p>Thanks for using SplatSpot! <a class="link-dark" href="#">Return to home page</a></p>
+    <p>Thanks for using SplatSpot! <a class="link-dark" href="<c:url value="/home"/>">Return to home page</a></p>
   </main>
   <%@include file="include/footer.jsp"%>
 </div>
