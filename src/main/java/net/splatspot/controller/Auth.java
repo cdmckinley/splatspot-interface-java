@@ -1,4 +1,4 @@
-package edu.matc.controller;
+package net.splatspot.controller;
 
 
 import com.auth0.jwt.JWT;

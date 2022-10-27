@@ -1,4 +1,4 @@
-package edu.matc.controller;
+package net.splatspot.controller;
 
 import edu.matc.utilities.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
