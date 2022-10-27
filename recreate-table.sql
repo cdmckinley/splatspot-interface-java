@@ -16,7 +16,8 @@ CREATE TABLE `user` (
     `splash_tag_number` varchar(4) DEFAULT NULL,
     `share_info_with_users` char(1) NOT NULL,
     `share_when_ready_to_play` char(1) NOT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    Unique (username, discord_id)
 );
 
 CREATE TABLE `shared_media` (
