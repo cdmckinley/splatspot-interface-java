@@ -21,7 +21,7 @@ public class Home extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session= req.getSession(false);
+        HttpSession session = req.getSession(false);
         try {
             String userName = session.getAttribute("userName").toString();
             req.setAttribute("userName", userName);
