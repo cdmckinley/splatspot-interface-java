@@ -8,6 +8,8 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.auth.*;
 import edu.matc.utilities.PropertiesLoader;
+import net.splatspot.entity.User;
+import net.splatspot.persistence.Dao;
 import org.apache.commons.io.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -109,6 +111,20 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 // TODO use or remove: req.setAttribute("userName", userName);
                 HttpSession session = req.getSession();
                 session.setAttribute("userName", userName);
+
+                Dao<User> userDao = new Dao<>(User.class);
+
+                // TODO Check if the user is in the database already
+                if (userDao.getByProperty("username", userName).isEmpty()) {
+                    // Instantiate a new User with their username and default settings
+                    User user = new User();
+                    user.setUsername(userName);
+                    user.setShareInfoWithUsers(false);
+                    user.setShareWhenReadyToPlay(false);
+
+                    // TODO insert new user into database
+                    userDao.insert(user);
+                }
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 // TODO Give the user more information on the error?
