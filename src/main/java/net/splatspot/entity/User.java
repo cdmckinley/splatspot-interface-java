@@ -284,8 +284,12 @@ public class User {
      * @return the splash tag string
      */
     public String readSplashTag() {
-        String name = this.splashTagName;
-        String number = this.splashTagNumber;
-        return name + "#" + number;
+        if (splashTagName.isEmpty() || splashTagNumber.isEmpty()) {
+            return null;
+        } else {
+            String name = this.splashTagName;
+            String number = this.splashTagNumber;
+            return name + "#" + number;
+        }
     }
 }
