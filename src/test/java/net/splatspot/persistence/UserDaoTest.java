@@ -117,7 +117,7 @@ public class UserDaoTest {
      * Returns null when no User records are found.
      */
     @Test
-    void returnNullWhenNoRecords() {
+    void returnEmptyWhenNoRecords() {
         Database database = Database.getInstance();
         database.runSQL("empty_tables.sql");
         List<User> userList = userDao.getAll();
@@ -137,7 +137,7 @@ public class UserDaoTest {
      * Returns null when no records match an expected property.
      */
     @Test
-    void returnNullWhenNoMatchingRecords() {
+    void returnEmptyWhenNoMatchingRecords() {
         List<User> userList = userDao.getByProperty("nickname", "Agent 404");
         assertTrue(userList.isEmpty());
     }
