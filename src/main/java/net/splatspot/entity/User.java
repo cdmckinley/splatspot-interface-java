@@ -1,9 +1,12 @@
 package net.splatspot.entity;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -284,12 +287,12 @@ public class User {
      * @return the splash tag string
      */
     public String readSplashTag() {
-        if (splashTagName.isEmpty() || splashTagNumber.isEmpty()) {
-            return null;
-        } else {
-            String name = this.splashTagName;
-            String number = this.splashTagNumber;
-            return name + "#" + number;
-        }
+        String fullSplashTag;
+        String name = this.splashTagName;
+        String number = this.splashTagNumber;
+        if (Objects.isNull(name) || Objects.isNull(number))
+        fullSplashTag = "";
+        else fullSplashTag = name + "#" + number;
+        return fullSplashTag;
     }
 }
