@@ -348,11 +348,19 @@ I used:
 - W3Schools
   - [MySQL Unique](https://www.w3schools.com/mysql/mysql_unique.asp)
   - [HTML form elements](https://www.w3schools.com/html/html_form_elements.asp) when looking for the name of the `fieldset` element.
+  - [HTML Select](https://www.w3schools.com/tags/tag_select.asp)
 - Oracle JavaDocs
   - [HttpServletResponse](https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletResponse.html)
   - [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
   - [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html)
+  - [`switch` statement](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html)
 - StackOverflow
   - [`HttpServletResponse.sendRedirect()` usually causes a GET request](https://stackoverflow.com/questions/30292386/httpservletresponse-sendredirect-change-method-type), which is what I was hoping for
   - [HTML forms can't make `PUT` calls](https://stackoverflow.com/questions/8054165/using-put-method-in-html-form), which I was hoping to do
 - [Getting from data from a `Post` request](https://www.tutorialspoint.com/servlets/servlets-form-data.htm)
+- Bootstrap
+  - [Tables](https://getbootstrap.com/docs/5.0/content/tables/)
+  - [Forms](https://getbootstrap.com/docs/5.0/forms/overview/)
+  - [Background Colors](https://getbootstrap.com/docs/5.0/utilities/background/)
+  - [Borders](https://getbootstrap.com/docs/5.0/utilities/borders/)
+  - [Flex: Alig Items](https://getbootstrap.com/docs/5.0/utilities/flex/#align-items)
