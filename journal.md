@@ -339,3 +339,20 @@ References used:
   - [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html) when looking for `substring` syntax, and other String-manipulation methods that I don't see (I can work without them as far as I can tell)
 - [JSTL `url` tag](https://www.tutorialspoint.com/jsp/jstl_core_url_tag.htm)
 - The course website, YouTube, and Slack
+
+10/26 through 10/29
+
+I've been working on implementing my database with my application
+
+I used:
+- W3Schools
+  - [MySQL Unique](https://www.w3schools.com/mysql/mysql_unique.asp)
+  - [HTML form elements](https://www.w3schools.com/html/html_form_elements.asp) when looking for the name of the `fieldset` element.
+- Oracle JavaDocs
+  - [HttpServletResponse](https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletResponse.html)
+  - [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
+  - [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html)
+- StackOverflow
+  - [`HttpServletResponse.sendRedirect()` usually causes a GET request](https://stackoverflow.com/questions/30292386/httpservletresponse-sendredirect-change-method-type), which is what I was hoping for
+  - [HTML forms can't make `PUT` calls](https://stackoverflow.com/questions/8054165/using-put-method-in-html-form), which I was hoping to do
+- [Getting from data from a `Post` request](https://www.tutorialspoint.com/servlets/servlets-form-data.htm)
