@@ -21,6 +21,8 @@ import java.util.List;
 public class Profile extends HttpServlet {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private Dao<User> userDao = new Dao<>(User.class);
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,7 +34,9 @@ public class Profile extends HttpServlet {
             req.setAttribute("splashTag", user.readSplashTag());
             req.setAttribute("nickname", user.getNickname());
             req.setAttribute("friendCode", user.getFriendCode());
-            // TODO set attributes for more data
+            req.setAttribute("shareInfo", toPlainEnglish(user.getShareInfoWithUsers()));
+            req.setAttribute("shareStatus", toPlainEnglish(user.getShareWhenReadyToPlay()));
+
             RequestDispatcher dispatcher = req.getRequestDispatcher("/profile.jsp");
             dispatcher.forward(req, resp);
         } catch (NullPointerException npe) {
@@ -93,6 +97,24 @@ public class Profile extends HttpServlet {
                 user.setSplashTagName(splashTagName);
                 user.setSplashTagNumber(splashTagNumber);
             }
+
+            String shareInfo = req.getParameter("share-info");
+            // TODO write a method for checking keep/yes/no
+            switch (shareInfo) {
+                case "no": user.setShareInfoWithUsers(false); break;
+                case "yes": user.setShareInfoWithUsers(true); break;
+                default: break;
+            }
+
+            String shareStatus = req.getParameter("share-status");
+            switch (shareStatus) {
+                case "no": user.setShareWhenReadyToPlay(false); break;
+                case "yes": user.setShareWhenReadyToPlay(true); break;
+                default: break;
+            }
+
+            userDao.update(user);
+
         } catch (NullPointerException npe) {
             logger.debug("No user was found");
         } finally {
@@ -103,10 +125,14 @@ public class Profile extends HttpServlet {
     }
 
     protected User loadUser(String username) {
-        Dao<User> userDao = new Dao<>(User.class);
         List<User> users = userDao.getByProperty("username", username);
         if (users.size() == 1)
         return users.get(0);
         else return null;
+    }
+
+    protected String toPlainEnglish(boolean choice) {
+        if (choice) return "Yes";
+        else return "No";
     }
 }
