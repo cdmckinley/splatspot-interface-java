@@ -7,7 +7,7 @@
             <a class="mx-2 text-dark" href="#">Moments</a>
             <c:choose>
                 <c:when test="${userName != null}">
-                    <a class="mx-2 text-dark" href="#"><c:out value="${userName}"/></a>
+                    <a class="mx-2 text-dark" href="<c:url value="/profile"/>"><c:out value="${userName}"/></a>
                 </c:when>
                 <c:otherwise>
                     <c:set var="guestUser" value="Yes"/>
