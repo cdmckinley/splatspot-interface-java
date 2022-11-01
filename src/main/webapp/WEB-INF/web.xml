@@ -6,10 +6,10 @@
   <display-name>SplatSpot</display-name>
   <error-page>
     <error-code>404</error-code>
-    <location>/error?type="not-found"</location>
+    <location>/error?type=not-found</location>
   </error-page>
   <error-page>
     <error-code>500</error-code>
-    <location>/error?type="sever"</location>
+    <location>/error?type=sever</location>
   </error-page>
 </web-app>
