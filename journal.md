@@ -364,3 +364,22 @@ I used:
   - [Background Colors](https://getbootstrap.com/docs/5.0/utilities/background/)
   - [Borders](https://getbootstrap.com/docs/5.0/utilities/borders/)
   - [Flex: Alig Items](https://getbootstrap.com/docs/5.0/utilities/flex/#align-items)
+
+### Tenth week
+
+10/30 through 11/1
+
+I've been in the process of wrapping Checkpoint 3 up. I've also found I've been handling checking for null incorrectly, as the usual methods weren't working because I thought I had Sessions returning null values, when the sessions themselves were what were null.
+
+Resources:
+- W3Schools
+  - [HTML Form Elements](https://www.w3schools.com/html/html_form_elements.asp), though I cant remember what I used this for
+  - [HTML Option `selected` attribute](https://www.w3schools.com/tags/att_option_selected.asp)
+- Tutorialspoint
+  - [JSTL If](https://www.tutorialspoint.com/jsp/jstl_core_if_tag.htm)
+  - [JSTL Choose](https://www.tutorialspoint.com/jsp/jstl_core_choose_tag.htm)
+- Java Documentation
+  - [HttpSession](https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpSession.html)
+  - [HttpServlet](https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html)
+- Finding [why I was getting `NullPointerException` so often](https://stackoverflow.com/questions/32666972/getting-data-from-session-attribute-returns-null-pointer)
+- [Error Pages in web.xml](https://www.codejava.net/java-ee/servlet/how-to-handle-error-in-web-xml-for-java-web-applications)
