@@ -27,7 +27,7 @@ public class Profile extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(false);
+        HttpSession session = req.getSession();
 
         if (session != null && verifyUserExists(session, req)) {
             User user = loadUser(req.getAttribute("userName").toString());
@@ -53,13 +53,12 @@ public class Profile extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        HttpSession session = req.getSession(false);
-        String userName;
+        HttpSession session = req.getSession();
+        Object userNameAttribute = session.getAttribute("userName");
 
-        try {
-            userName = session.getAttribute("userName").toString();
+        if (!Objects.isNull(userNameAttribute)) {
+            String userName = userNameAttribute.toString();
             User user = loadUser(userName);
-            // TODO set new user properties and update the
 
             // TODO write a method like these parts of the code
             String nickname = req.getParameter("nickname");
@@ -116,13 +115,12 @@ public class Profile extends HttpServlet {
 
             userDao.update(user);
 
-        } catch (NullPointerException npe) {
+        } else {
             logger.debug("No user was found");
-        } finally {
-            // Redirect to a GET request
-            String url = req.getRequestURL().toString();
-            resp.sendRedirect(url);
         }
+        // Redirect to a GET request
+        String url = req.getRequestURL().toString();
+        resp.sendRedirect(url);
     }
 
     protected User loadUser(String username) {
