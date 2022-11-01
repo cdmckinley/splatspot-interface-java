@@ -8,6 +8,7 @@
   <%@include file="include/header.jsp"%>
   <main class="bg-primary my-3 d-flex flex-column align-items-center text-white">
     <c:choose>
+<%--  TODO make sure errorType is set  --%>
       <c:when test="${errorType == 'not-found'}">
         <h1>That address wasn't found</h1>
         <p class="w-50">Please re-type the address or return to the home page.</p>
