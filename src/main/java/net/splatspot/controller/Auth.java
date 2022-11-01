@@ -108,7 +108,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
                 userName = validate(tokenResponse);
-                // TODO use or remove: req.setAttribute("userName", userName);
                 HttpSession session = req.getSession();
                 session.setAttribute("userName", userName);
 
