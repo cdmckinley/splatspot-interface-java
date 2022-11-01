@@ -31,6 +31,10 @@ public class Error extends HttpServlet {
         } else {
             logger.debug("No username was found");
         }
+        String errorType = req.getParameter("type");
+        if (errorType.equals("not-found") || errorType.equals("server")) {
+            req.setAttribute("errorType", errorType);
+        }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
         dispatcher.forward(req, resp);
     }
