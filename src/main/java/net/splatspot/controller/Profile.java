@@ -29,9 +29,10 @@ public class Profile extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
 
-        if (verifyUserExists(session, req)) {
+        if (session != null && verifyUserExists(session, req)) {
             User user = loadUser(req.getAttribute("userName").toString());
-            setAttributeIgnoringNull(req, "splashTag", user.readSplashTag());
+            setAttributeIgnoringNull(req, "splashTagName", user.getSplashTagName());
+            setAttributeIgnoringNull(req, "splashTagNumber", user.getSplashTagNumber());
             setAttributeIgnoringNull(req, "nickname", user.getNickname());
             setAttributeIgnoringNull(req, "friendCode", user.getFriendCode());
             setAttributeIgnoringNull(req, "shareInfo", toPlainEnglish(user.getShareInfoWithUsers()));
