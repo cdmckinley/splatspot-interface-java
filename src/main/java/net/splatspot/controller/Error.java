@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Objects;
 
 @WebServlet(
         urlPatterns = {"/error"}
@@ -22,15 +23,15 @@ public class Error extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(false);
-        try {
-            String userName = session.getAttribute("userName").toString();
+        HttpSession session = req.getSession();
+        Object userNameAttribute = session.getAttribute("userName");
+        if (!Objects.isNull(userNameAttribute)) {
+            String userName = userNameAttribute.toString();
             req.setAttribute("userName", userName);
-        } catch (NullPointerException npe) {
+        } else {
             logger.debug("No username was found");
-        } finally {
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
-            dispatcher.forward(req, resp);
         }
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
+        dispatcher.forward(req, resp);
     }
 }
