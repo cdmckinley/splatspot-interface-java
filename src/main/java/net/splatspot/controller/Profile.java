@@ -14,6 +14,7 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 @WebServlet(
         urlPatterns = {"/profile"}
@@ -27,19 +28,18 @@ public class Profile extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
-        try {
-            String userName = session.getAttribute("userName").toString();
-            req.setAttribute("userName",userName);
-            User user = loadUser(userName);
-            req.setAttribute("splashTag", user.readSplashTag());
-            req.setAttribute("nickname", user.getNickname());
-            req.setAttribute("friendCode", user.getFriendCode());
-            req.setAttribute("shareInfo", toPlainEnglish(user.getShareInfoWithUsers()));
-            req.setAttribute("shareStatus", toPlainEnglish(user.getShareWhenReadyToPlay()));
+
+        if (verifyUserExists(session, req)) {
+            User user = loadUser(req.getAttribute("userName").toString());
+            setAttributeIgnoringNull(req, "splashTag", user.readSplashTag());
+            setAttributeIgnoringNull(req, "nickname", user.getNickname());
+            setAttributeIgnoringNull(req, "friendCode", user.getFriendCode());
+            setAttributeIgnoringNull(req, "shareInfo", toPlainEnglish(user.getShareInfoWithUsers()));
+            setAttributeIgnoringNull(req, "shareStatus", toPlainEnglish(user.getShareWhenReadyToPlay()));
 
             RequestDispatcher dispatcher = req.getRequestDispatcher("/profile.jsp");
             dispatcher.forward(req, resp);
-        } catch (NullPointerException npe) {
+        } else {
             logger.debug("No username was found");
             // TODO make a common method for this:
             String urlParam = "/profile";
@@ -134,5 +134,19 @@ public class Profile extends HttpServlet {
     protected String toPlainEnglish(boolean choice) {
         if (choice) return "Yes";
         else return "No";
+    }
+
+    protected void setAttributeIgnoringNull(HttpServletRequest req, String attributeName, String value) {
+        if (!Objects.isNull(value)) {
+            req.setAttribute(attributeName, value);
+        }
+    }
+
+    protected boolean verifyUserExists(HttpSession session, HttpServletRequest req) {
+        if (!Objects.isNull(session.getAttribute("userName"))) {
+            String userName = session.getAttribute("userName").toString();
+            req.setAttribute("userName", userName);
+            return true;
+        } else return false;
     }
 }
