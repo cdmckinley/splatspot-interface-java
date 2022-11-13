@@ -383,3 +383,13 @@ Resources:
   - [HttpServlet](https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html)
 - Finding [why I was getting `NullPointerException` so often](https://stackoverflow.com/questions/32666972/getting-data-from-session-attribute-returns-null-pointer)
 - [Error Pages in web.xml](https://www.codejava.net/java-ee/servlet/how-to-handle-error-in-web-xml-for-java-web-applications)
+
+11/2
+
+- [Javatpoint Restful annotations example](https://www.javatpoint.com/jax-rs-annotations-example)
+- [JAX-RS tutorials](https://mkyong.com/tutorials/jax-rs-tutorials/)
+
+### Eleventh week
+
+11/3 through 11/13
+See journal for Team Project, and Professional Development Activity presentation.
