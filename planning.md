@@ -31,26 +31,33 @@ Completion status:
 
 ### Week 8
 - ~~Get completely up to date on weekly work, including Week 8~~ Complete week 8 
-- Figure out remaining technologies
+- Figure out remaining technologies 🕒
 - Submit checkpoint 2 ✅
 
 ### Week 9
-- Submit checkpoint 3 10/26
-- Experiment with Java and Discord (and OAuth2?) for Professional Development
+- Submit checkpoint 3 10/26 ❔
+- Experiment with Java and Discord (and OAuth2?) for Professional Development ✅
 
 ### Week 10
 
 ### Week 11
-- Submit Prof Dev Activity presentation. 11/9
+- Submit Prof Dev Activity presentation. 11/9 ✅
 
 ### Week 12
 - Submit Team Project 11/14
+- Figure out remaining technologies
+- Either work more on Individual Project, or get a head-start on Week 13's exercise
 
 ### Week 13
+- Submit Week 13 Exercise
+- Work in Individual Project
 
 ### Week 14
+- Peer review 2
+- Work in Individual Project
 
 ### Week 15
+- Work in Individual Project
 
 ### Week 16
 - Submit Individual Project
