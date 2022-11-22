@@ -44,12 +44,12 @@ Completion status:
 - Submit Prof Dev Activity presentation. 11/9 ✅
 
 ### Week 12
-- Submit Team Project 11/14
-- Figure out remaining technologies
-- Either work more on Individual Project, or get a head-start on Week 13's exercise
+- Submit Team Project 11/14 ✅
+- Figure out remaining technologies ❔
+- Either work more on Individual Project, or get a head-start on Week 13's exercise ✅
 
 ### Week 13
-- Submit Week 13 Exercise
+- Submit Week 13 Exercise ✅
 - Work in Individual Project
 
 ### Week 14
