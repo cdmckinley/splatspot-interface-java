@@ -49,7 +49,7 @@ public class UserDaoTest {
         user.setShareWhenReadyToPlay(true);
 
         SharedMedia sharedMedia = new SharedMedia();
-        sharedMedia.setLink("https://twitter.com/discord");
+        sharedMedia.setLink("P-xkS-csYhE");
 
         sharedMedia.setUser(user);
         user.addSharedMedia(sharedMedia);

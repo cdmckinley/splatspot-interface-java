@@ -36,7 +36,7 @@ public class SharedMediaDaoTest {
     @Test
     void insertSharedMedia() {
         int id;
-        String testLink = "https://twitter.com/NintendoAmerica";
+        String testLink = "P-xkS-csYhE";
         SharedMedia sharedMedia = new SharedMedia();
         sharedMedia.setLink(testLink);
 
@@ -68,7 +68,7 @@ public class SharedMediaDaoTest {
     @Test
     void getSharedMedia() {
         SharedMedia sharedMedia = sharedMediaDao.getById(46);
-        assertEquals("https://twitter.com/discord", sharedMedia.getLink());
+        assertEquals("L1s3NnhEK0g", sharedMedia.getLink());
     }
 
     /**
@@ -77,7 +77,7 @@ public class SharedMediaDaoTest {
     @Test
     void updateSharedMediaLink() {
         int id = 47;
-        String newLink = "https://twitter.com/NintendoAmerica";
+        String newLink = "cJQRBlnoKHE";
         SharedMedia sharedMedia = sharedMediaDao.getById(id);
         sharedMedia.setLink(newLink);
         sharedMediaDao.update(sharedMedia);
