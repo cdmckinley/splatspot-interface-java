@@ -28,9 +28,9 @@ public class SharedMedia {
     private User user;
 
     /**
-     * The shared link
+     * The id for the shared video
      */
-    @Column(length = 100)
+    @Column(length = 11, name = "video_id")
     private String link;
 
     /**
