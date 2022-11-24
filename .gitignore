@@ -63,5 +63,8 @@ fabric.properties
 # AWS Cognito properties
 **/cognito.properties
 
+# Youtube API properties
+**/youtube.properties
+
 # log files
 logs
