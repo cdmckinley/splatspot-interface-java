@@ -393,3 +393,23 @@ Resources:
 
 11/3 through 11/13
 See journal for Team Project, and Professional Development Activity presentation.
+
+### Twelfth week
+
+Sometime in Week 12
+
+I worked ahead and completed week 13, without much issue. It was great learning another way for applications to communicate.
+
+### Thirteenth week
+
+11/21 through 11/26
+
+I've had to do some re-adjustment of scope recently
+
+- I set my app up at https://console.cloud.google.com/
+- I started making a DAO for YouTube from an example [here](https://developers.google.com/youtube/v3/code_samples/code_snippets?apix=true)
+- [JavaDocs](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/) for the library for YouTube
+- https://developers.google.com/youtube/v3/quickstart/java
+- Maven
+  - https://mvnrepository.com/artifact/com.google.apis/google-api-services-youtube
+  - https://mvnrepository.com/artifact/com.google.api-client/google-api-client
