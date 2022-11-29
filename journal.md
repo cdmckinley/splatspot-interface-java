@@ -421,3 +421,10 @@ I've had to do some re-adjustment of scope recently
 - Maven repositories
   - https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-java6/1.34.1
   - https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty/1.34.1
+
+11/29
+It took some time, but I found how to use the API key with the YouTube Data API library. Seeing [Videos.List.setKey](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/YouTube.Videos.List.html) was very helpful, even if I had to do quite a bit of looking to find which clas had the method.
+I used:
+- The link above, as well as [this StackOverflow thread](https://stackoverflow.com/questions/26117184/how-to-put-api-key-into-youtube-builder-in-youtubes-android-api)
+- Course website, YouTube channel, and Slack
+- Seeing I could pass null for my credentials on [`Youtube.Builder`](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/YouTube.Builder.html)
