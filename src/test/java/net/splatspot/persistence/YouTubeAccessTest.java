@@ -10,17 +10,32 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 
+/**
+ * Tests for the YouTubeAccess class.
+ */
 public class YouTubeAccessTest {
 
+    /**
+     * The Logger.
+     */
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * The YouTube access object.
+     */
     YouTubeAccess youTubeAccess;
 
+    /**
+     * Sets up the YouTube access object.
+     */
     @BeforeEach
     void setup() {
         youTubeAccess = new YouTubeAccess();
     }
 
+    /**
+     * Test that the name and channel of a video can be found.
+     */
     @Test
     void testNameAndChannel() {
         String videoId = "2Rm4T2K4XZI";
