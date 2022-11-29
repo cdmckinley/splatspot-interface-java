@@ -14,8 +14,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
 
@@ -25,16 +23,40 @@ import java.util.Properties;
  */
 public class YouTubeAccess implements PropertiesLoader {
 
+    /**
+     * The logger.
+     */
     private final Logger logger = LogManager.getLogger(this.getClass());
+
+    /**
+     * The properties from the 'youtube.properties' file.
+     */
     private Properties properties;
 
+    /**
+     * The Jackson-based JSON factory.
+     */
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 
+    /**
+     * The name of the application.
+     */
     private static String APPLICATION_NAME;
+
+    /**
+     * The API key to access the service.
+     */
     private String API_KEY;
+
+    /**
+     * Represents the YouTube service.
+     */
     private YouTube youtubeService;
 
 
+    /**
+     * Instantiates a new YouTube access object.
+     */
     public YouTubeAccess() {
         try {
             properties = loadProperties("/youtube.properties");
@@ -51,12 +73,26 @@ public class YouTubeAccess implements PropertiesLoader {
         }
     }
 
+    /**
+     * Gets the YouTube service.
+     *
+     * @return the YouTube service
+     * @throws GeneralSecurityException
+     * @throws IOException
+     */
     private YouTube getService() throws GeneralSecurityException, IOException {
         NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
         return new
                 YouTube.Builder(httpTransport, JSON_FACTORY, null).setApplicationName(APPLICATION_NAME).build();
     }
 
+    /**
+     * Gets video information as a VideoSnippet.
+     *
+     * @param id the id
+     * @return the video snippet
+     * @throws IOException the io exception
+     */
     public VideoSnippet getVideoSnippet(String id) throws IOException {
         YouTube.Videos.List request = youtubeService.videos().list("snippet");
         YouTube.Videos.List videoList= request.setId(id);
