@@ -413,3 +413,11 @@ I've had to do some re-adjustment of scope recently
 - Maven
   - https://mvnrepository.com/artifact/com.google.apis/google-api-services-youtube
   - https://mvnrepository.com/artifact/com.google.api-client/google-api-client
+
+### Fourteenth Week
+
+11/28
+- [YouTube Video documentation](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/YouTube.Videos.html)
+- Maven repositories
+  - https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-java6/1.34.1
+  - https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty/1.34.1
