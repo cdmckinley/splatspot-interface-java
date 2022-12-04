@@ -50,14 +50,24 @@ Completion status:
 
 ### Week 13
 - Submit Week 13 Exercise ✅
-- Work in Individual Project
+- Work in Individual Project ✅
 
 ### Week 14
-- Peer review 2
-- Work in Individual Project
+- Peer review 2 ❔
+- Work in Individual Project ✅
 
 ### Week 15
+- Peer review 2: fill in the missing pieces
 - Work in Individual Project
+  - Make display page for videos, with an iFrame and some descriptive data ✅
+  - Make a page to insert, edit, and delete videos from the database
+  - Make a tag system
+  - Make a search page
+  - Data validation
+    - Client
+    - Server
+  - Update the profile page controller and JSP
+- Update the project documents
 
 ### Week 16
 - Submit Individual Project
