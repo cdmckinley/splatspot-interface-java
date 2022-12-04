@@ -428,3 +428,11 @@ I used:
 - The link above, as well as [this StackOverflow thread](https://stackoverflow.com/questions/26117184/how-to-put-api-key-into-youtube-builder-in-youtubes-android-api)
 - Course website, YouTube channel, and Slack
 - Seeing I could pass null for my credentials on [`Youtube.Builder`](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/YouTube.Builder.html)
+
+### Fifteenth Week
+
+11/30 through 12/4
+- [YouTube embedding with iFrames](https://developers.google.com/youtube/player_parameters)
+- [Sending Errors](https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletResponse.html)
+- [Refresh on `Integer.parseInt`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html)
+- [HTTP Error Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses)
