@@ -13,14 +13,26 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * The controller for the Error page.
+ */
 @WebServlet(
         urlPatterns = {"/error"}
 )
 public class Error extends HttpServlet {
 
+    /**
+     * The Logger
+     */
     private final Logger logger = LogManager.getLogger(this.getClass());
 
-
+    /**
+     * Forwards to the 'error' JSP when there's a GET request.
+     * @param req The HttpServletRequest
+     * @param resp The HttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();

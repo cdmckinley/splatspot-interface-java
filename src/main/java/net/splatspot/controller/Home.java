@@ -13,13 +13,26 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * The controller for the home page.
+ */
 @WebServlet(
         urlPatterns = {"/home"}
 )
 public class Home extends HttpServlet {
 
+    /**
+     * The Logger
+     */
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Forward to the 'home' jsp when a GET request is received
+     * @param req The HttpServletRequest
+     * @param resp The HttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();

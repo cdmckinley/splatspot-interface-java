@@ -16,15 +16,31 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The controller for the profile page.
+ */
 @WebServlet(
         urlPatterns = {"/profile"}
 )
 public class Profile extends HttpServlet {
 
+    /**
+     * The Logger
+     */
     private final Logger logger = LogManager.getLogger(this.getClass());
+
+    /**
+     * The DAO for User data
+     */
     private Dao<User> userDao = new Dao<>(User.class);
 
-
+    /**
+     * Get User data and forward to the 'profile' jsp if a GET request is received.
+     * @param req The HttpServletRequest
+     * @param resp TheHttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -51,6 +67,12 @@ public class Profile extends HttpServlet {
         }
     }
 
+    /**
+     * Update a User's data, then redirect to profile display, if a POST request is received
+     * @param req The HttpServletRequest
+     * @param resp The HttpServletResponse
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
@@ -123,6 +145,12 @@ public class Profile extends HttpServlet {
         resp.sendRedirect(url);
     }
 
+    /**
+     * Load User data associated with who's logged in.
+     *
+     * @param username the username
+     * @return the user
+     */
     protected User loadUser(String username) {
         List<User> users = userDao.getByProperty("username", username);
         if (users.size() == 1)
@@ -130,17 +158,37 @@ public class Profile extends HttpServlet {
         else return null;
     }
 
+    /**
+     * Converts booleans to Yes/No Strings.
+     *
+     * @param choice the boolean
+     * @return Yes if true. No if false.
+     */
     protected String toPlainEnglish(boolean choice) {
         if (choice) return "Yes";
         else return "No";
     }
 
+    /**
+     * Sets an attribute if input isn't null.
+     *
+     * @param req           the HttpServletRequest
+     * @param attributeName the attribute name
+     * @param value         the input value
+     */
     protected void setAttributeIgnoringNull(HttpServletRequest req, String attributeName, String value) {
         if (!Objects.isNull(value)) {
             req.setAttribute(attributeName, value);
         }
     }
 
+    /**
+     * Verifies a user exists.
+     *
+     * @param session the session
+     * @param req     the HttpServletRequest
+     * @return True if the User exists. False otherwise.
+     */
     protected boolean verifyUserExists(HttpSession session, HttpServletRequest req) {
         if (!Objects.isNull(session.getAttribute("userName"))) {
             String userName = session.getAttribute("userName").toString();
