@@ -1,7 +1,5 @@
 package net.splatspot.entity;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -279,6 +277,15 @@ public class User {
     public void removeSharedMedia(SharedMedia sharedMedia) {
         sharedMediaSet.remove(sharedMedia);
         sharedMedia.setUser(null);
+    }
+
+    /**
+     * Gets the nickname, or username if a nickname isn't set.
+     * @return The nickname, or username is nickname is null.
+     */
+    public String getDisplayName() {
+        if (nickname != null && !nickname.isBlank()) return nickname;
+        else return username;
     }
 
     /**
