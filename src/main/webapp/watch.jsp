@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html>
-<c:set var = "title" scope = "page" value = "Watch a Shared Video"/>
+<c:set var = "title" scope = "page" value = "Watch ${videoName}"/>
 <%@include file="include/head.jsp"%>
 <body class="bg-dark pb-0 mb-0">
 <div class="container-lg bg-secondary">
