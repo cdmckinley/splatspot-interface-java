@@ -64,7 +64,7 @@ Completion status:
   - Make a tag system
   - Make a search page
   - Data validation
-    - Client
+    - Client (includes requiring elements, as well as using a validation library)
     - Server
   - Update the profile page controller and JSP
 - Update the project documents
