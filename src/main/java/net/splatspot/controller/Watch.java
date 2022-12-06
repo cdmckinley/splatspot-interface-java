@@ -52,7 +52,7 @@ public class Watch extends HttpServlet {
         String videoId = video.getLink();
 
         req.setAttribute("videoId", videoId);
-        req.setAttribute("profileName", video.getUser().getDisplayName());
+        req.setAttribute("profileName", video.getUser().getUsername());
         String description = video.getDescription();
 
         if (description == null) description = "";
