@@ -118,8 +118,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                     // Instantiate a new User with their username and default settings
                     User user = new User();
                     user.setUsername(userName);
-                    user.setShareInfoWithUsers(false);
-                    user.setShareWhenReadyToPlay(false);
 
                     // TODO insert new user into database
                     userDao.insert(user);
