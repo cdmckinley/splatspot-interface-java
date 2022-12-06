@@ -436,3 +436,9 @@ I used:
 - [Sending Errors](https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletResponse.html)
 - [Refresh on `Integer.parseInt`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html)
 - [HTTP Error Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses)
+
+12/5
+- [W3Schools: Textarea](https://www.w3schools.com/tags/tag_textarea.asp)
+- [Converting sets to lists](https://www.geeksforgeeks.org/set-list-java/) (I used Method 2)
+- The big one?!? [Accessing session from JSPs](https://www.javatips.net/blog/reading-session-attributes-using-jstl)
+- The course meeting, Slack, and website
