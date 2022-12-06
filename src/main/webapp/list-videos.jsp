@@ -4,15 +4,31 @@
 <c:set var = "title" scope = "page" value = "Videos List"/>
 <%@include file="include/head.jsp"%>
 <body class="bg-dark pb-0 mb-0">
+<%@include file="include/data-tables.jsp"%>
 <div class="container-lg bg-secondary">
   <%@include file="include/header.jsp"%>
   <main class="bg-primary my-3 d-flex flex-column align-items-center text-white">
       <table id="data-table" class="display">
           <thead>
               <tr>
-                  <th></th>
+                  <th>Thumbnail</th>
+                  <th>Title</th>
+                  <th>Channel</th>
+                  <th>Shared By</th>
               </tr>
           </thead>
+          <tbody>
+              <c:forEach items = "${videos}" var = "video">
+                  <tr>
+                      <td><img src="<c:out value="${video.snippet.getThumbnails().getDefault().getUrl()}"/>"
+                               alt="<c:out value="${video.snippet.getTitle()}"/>"></td>
+                      <td><a href="<c:url value="watch?video-id=${video.getId()}"/>">
+                              <c:out value="${video.snippet.getTitle()}"/></a></td>
+                      <td><c:out value="${video.snippet.getChannelTitle()}"/></td>
+                      <td><c:out value="${video.getUser().getUsername()}"/></td>
+                  </tr>
+              </c:forEach>
+          </tbody>
       </table>
   </main>
   <%@include file="include/footer.jsp"%>
