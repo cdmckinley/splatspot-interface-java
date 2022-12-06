@@ -61,12 +61,11 @@ Completion status:
 - Work in Individual Project
   - Make display page for videos, with an iFrame and some descriptive data ✅
   - Make a page to insert, edit, and delete videos from the database
-  - Make a tag system
-  - Make a search page
+  - Make a search page (by user)
   - Data validation
     - Client (includes requiring elements, as well as using a validation library)
-    - Server
-  - Update the profile page controller and JSP
+    - Server (Use your bean models!)
+  - Replace(?) the profile page controller and JSP
 - Update the project documents
 
 ### Week 16
