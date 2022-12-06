@@ -58,21 +58,23 @@ public class Watch extends HttpServlet {
         if (description == null) description = "";
         req.setAttribute("mediaDescription", description);
 
-        VideoSnippet snippet = null;
         try {
-            snippet = youtubeAccess.getVideoSnippet(videoId);
+            video.setSnippet(youtubeAccess);
         } catch (IOException ioe) {
             logger.error(ioe.getStackTrace());
         }
+        VideoSnippet snippet = video.getSnippet();
 
         if (snippet == null) {
-            logger.warn("The link from the database is not valid: " + videoId);
+            logger.warn("The link from the database does not reach a valid video: " + videoId);
             res.sendError(502);
             return;
         }
 
-        req.setAttribute("videoName", snippet.getTitle());
-        req.setAttribute("channelName", snippet.getChannelTitle());
+        req.setAttribute("snippet", snippet);
+
+//        req.setAttribute("videoName", snippet.getTitle());
+//        req.setAttribute("channelName", snippet.getChannelTitle());
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("watch.jsp");
         dispatcher.forward(req, res);
