@@ -41,12 +41,6 @@ public class UserDaoTest {
 
         User user = new User();
         user.setUsername("test_user");
-        user.setNickname("JustATest");
-        user.setFriendCode("SW-5555-5555-5555");
-        user.setSplashTagName("TestFirer");
-        user.setSplashTagNumber("4567");
-        user.setShareInfoWithUsers(false);
-        user.setShareWhenReadyToPlay(true);
 
         SharedMedia sharedMedia = new SharedMedia();
         sharedMedia.setLink("P-xkS-csYhE");
@@ -57,7 +51,7 @@ public class UserDaoTest {
         id = userDao.insert(user);
 
         User result = userDao.getById(id);
-        assertEquals("JustATest", result.getNickname());
+        assertEquals("test_user", result.getUsername());
         assertEquals(1, result.getSharedMediaSet().size());
     }
 
@@ -76,21 +70,7 @@ public class UserDaoTest {
     @Test
     void getUser() {
         User user = userDao.getById(1);
-        assertEquals("Nick", user.getNickname());
-    }
-
-    /**
-     * Tests updating the user's nickname.
-     */
-    @Test
-    void updateUserNickname() {
-        int id = 1;
-        String newNickname = "Nickname2";
-        User user = userDao.getById(id);
-        user.setNickname(newNickname);
-        userDao.update(user);
-        User user2 = userDao.getById(id);
-        assertEquals(user2.getNickname(), newNickname);
+        assertEquals("test_1", user.getUsername());
     }
 
     /**
@@ -138,7 +118,7 @@ public class UserDaoTest {
      */
     @Test
     void returnEmptyWhenNoMatchingRecords() {
-        List<User> userList = userDao.getByProperty("nickname", "Agent 404");
+        List<User> userList = userDao.getByProperty("username", "Agent404");
         assertTrue(userList.isEmpty());
     }
 }
