@@ -7,8 +7,9 @@
 <div class="container-lg bg-secondary">
     <%@include file="include/header.jsp"%>
     <main class="bg-primary my-3 d-flex flex-column align-items-center text-white">
-        <h3><c:out value="${videoName}"/></h3>
-        <h4>Shared by <c:out value="${profileName}"/> - from the YouTube channel <c:out value="${channelName}"/></h4>
+        <h3><c:out value="${sessionScope.snippet.getTitle()}"/></h3>
+        <h4>Shared by <c:out value="${profileName}"/> - from the YouTube channel
+            <c:out value="${sessionScope.snippet.getChannelTitle()}"/></h4>
         <iframe type="text/html" width="640" height="360"
                 src="https://www.youtube.com/embed/<c:out value="${videoId}"/>"></iframe>
         <label for="description">Description by <c:out value="${profileName}"/>:</label>
