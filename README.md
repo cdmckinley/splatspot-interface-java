@@ -4,13 +4,7 @@ This repository is for a project in Madison College's Enterprise Java Class, and
 
 ### Problem Statement
 
-#### Probable Primary Endpoint
-
-Finding someone to play a specific game with you isn't always easy. When it comes to "Splatoon 3", each of the two teams consists of four players, and adding AI-controlled players to fill those positions is not an option. While Splatoon 3 does offer its own matchmaking, that doesn't include getting to chat with people that don't already know each other. People may only chat with those on their friends list, and only through Nintendo's smartphone app. SplatSpot consists of a Discord server, website, and Java-driven Discord application, that helps players of Splatoon 3 team up and find a team to play against when necessary.
-
-#### Alternative Ideas/Stretch Goals
-
-"Splatoon 3" users like to share moments from their games, both the funny and epic moments! SplatSpot allows users to browse video captures, fanart, and memes posted by players of Splatoon 3. It achieves this by storing links of different social media posts into a database. They're viewable from the website through a search (thanks to APIs of certain hosts, such as Twitter), and (if using the Discord API) are posted into a feed on the Discord server once they're posted on the web.
+"Splatoon 3" users like to share moments from their games, both the funny and epic moments! SplatSpot allows users to browse video captures posted by players of Splatoon 3. It achieves this by storing links of different YouTube posts into a database. They're viewable from the website through user feeds and a collective, all-user feed.
 
 ### Project Technologies
 
@@ -21,26 +15,18 @@ Finding someone to play a specific game with you isn't always easy. When it come
 - Dependency Management
   - Maven
 - Web services consumed using Java
-  - Likely Primarily
-    - Consume a separate spp that uses the Discord API using the "Java Discord API" library, version 4.4.0
-  - Likely Secondarily/Stretch Goals
-    - Twitter
-    - YouTube
-    - Potentially an undecided image hosting website
+  - YouTube Data API
 - CSS
   - Likely Bootstrap
-  - TODO custom CSS?
 - Data Validation
-  - TODO determine this
+  - Hibernate (server) and jQuery (client)
 - Logging
   - Log4J 2.17.2
 - Hosting:
-  - AWS
+  - AWS BeanStalk
 - Research Topics
-  - Java Discord API (for communicating with Discord)
-  - OAuth2 (for interacting with specific accounts)
-  - Twitter API (for embedding)
-  - YouTube API (for embedding)
+  - Java Discord API (Researched. Won't be used for the project anymore)
+  - YouTube API (for data)
 - Unit Testing
   - JUnit 4.12
 - IDE
