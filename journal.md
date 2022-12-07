@@ -442,3 +442,13 @@ I used:
 - [Converting sets to lists](https://www.geeksforgeeks.org/set-list-java/) (I used Method 2)
 - The big one?!? [Accessing session from JSPs](https://www.javatips.net/blog/reading-session-attributes-using-jstl)
 - The course meeting, Slack, and website
+
+12/6
+- [Quota Calculator](https://developers.google.com/youtube/v3/determine_quota_cost)
+- [HTML tables](https://www.w3schools.com/html/html_tables.asp)
+- [JSTL URLs](https://www.tutorialspoint.com/jsp/jstl_core_url_tag.htm)
+- YouTube Data API
+  - [VideoSnippet](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/)
+  - [ThumbnailDetails](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/model/ThumbnailDetails.html)
+  - [Thumbnail](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/model/Thumbnail.html)
+- [HTTP Error codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses)
