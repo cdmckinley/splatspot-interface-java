@@ -57,11 +57,14 @@ Completion status:
 - Work in Individual Project ✅
 
 ### Week 15
-- Peer review 2: fill in the missing pieces
+- Peer review 2: fill in the missing pieces ✅
 - Work in Individual Project
   - Make display page for videos, with an iFrame and some descriptive data ✅
-  - Make a page to insert, edit, and delete videos from the database
+  - Make a page to insert data ✅
+  - Add edit functionality to the insert page
+  - Add delete functionality to each SharedMedia entry 
   - Make a search page (by user)
+  - Adjust error handling to use sendError
   - Data validation
     - Client (includes requiring elements, as well as using a validation library)
     - Server (Use your bean models!)
