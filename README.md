@@ -35,9 +35,9 @@ This repository is for a project in Madison College's Enterprise Java Class, and
 ### [Project Goals](goals.md)
 
 ### Design
-- [User stories](userStories.md)
-- [Screen Design](screen-design.md)
-- [ERD](ERD.png)
+- [User stories](userStories.md) (Needs updating)
+- [Screen Design](screen-design.md) (Out-of-date, but provides a general style)
+- [ERD](ERD.png) (Needs updating)
 
 ### [Project Plan](planning.md)
 
