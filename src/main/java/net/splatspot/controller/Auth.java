@@ -10,6 +10,7 @@ import edu.matc.auth.*;
 import edu.matc.utilities.PropertiesLoader;
 import net.splatspot.entity.User;
 import net.splatspot.persistence.Dao;
+import net.splatspot.utilities.ServletUtilities;
 import org.apache.commons.io.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -93,6 +94,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        final String thisPage = "/auth";
         final String indexPage = "/home";
         final String errorPage = "/error";
         final String loginPage = "/login";
@@ -102,7 +104,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         if (authCode == null) {
             //TODO update this code block if need-be
-            redirectToPage(req, resp, loginPage);
+            ServletUtilities.redirectToPage(req, resp, thisPage, loginPage);
         } else {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
@@ -131,7 +133,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 // TODO Give the user more information on the error?
                 forwardToPage(req, resp, errorPage);
             }
-            redirectToPage(req, resp, indexPage);
+            ServletUtilities.redirectToPage(req, resp, thisPage, indexPage);
         }
     }
 
@@ -147,14 +149,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher(pageName);
         dispatcher.forward(req, resp);
-    }
-
-    protected void redirectToPage(HttpServletRequest req, HttpServletResponse resp, String pageName) throws IOException{
-        String urlParam = "/auth";
-        String url = req.getRequestURL().toString();
-        url = url.substring(0, url.length() - urlParam.length());
-        url = url + pageName;
-        resp.sendRedirect(url);
     }
 
     /**
