@@ -14,6 +14,9 @@
                 src="https://www.youtube.com/embed/<c:out value="${videoId}"/>"></iframe>
         <label for="description">Description by <c:out value="${profileName}"/>:</label>
         <p id="description"><c:out value="${mediaDescription}"/></p>
+        <c:if test="${sessionScope.userName == profileName}">
+            <div><span>You posted this. <a href="delete?video-id=<c:out value="${id}"/>">Delete this post?</a></span></div>
+        </c:if>
     </main>
     <%@include file="include/footer.jsp"%>
 </div>
