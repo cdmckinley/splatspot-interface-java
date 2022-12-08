@@ -4,6 +4,7 @@ import com.google.api.services.youtube.model.VideoSnippet;
 import net.splatspot.entity.SharedMedia;
 import net.splatspot.persistence.Dao;
 import net.splatspot.persistence.YouTubeAccess;
+import net.splatspot.utilities.ServletUtilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,30 +29,17 @@ public class Watch extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String id = req.getParameter("video-id");
 
-        if (id == null || id.isBlank()) {
-            res.sendError(400);
-            return;
-        }
+        int idNumber = ServletUtilities.getSharedMediaIdFromQuery(res, id);
+        if (idNumber < 0) return;
 
-        int idNumber;
-        try {
-            idNumber = Integer.parseInt(id);
-        } catch (NumberFormatException nfe) {
-            logger.error("Non-number '" + id + "' was passed as an ID", nfe);
-            res.sendError(400);
-            return;
-        }
+        SharedMedia video = ServletUtilities.getVideoFromId(res, sharedMediaDao, idNumber);
+        if (ServletUtilities.sharedMediaIsSentinel(video)) return;
 
-        SharedMedia video = sharedMediaDao.getById(idNumber);
+        req.setAttribute("id", idNumber);
 
-        if (video == null) {
-            res.sendError(404);
-            return;
-        }
+        String videoLink = video.getLink();
 
-        String videoId = video.getLink();
-
-        req.setAttribute("videoId", videoId);
+        req.setAttribute("videoId", videoLink);
         req.setAttribute("profileName", video.getUser().getUsername());
         String description = video.getDescription();
 
@@ -66,15 +54,12 @@ public class Watch extends HttpServlet {
         VideoSnippet snippet = video.getSnippet();
 
         if (snippet == null) {
-            logger.warn("The link from the database does not reach a valid video: " + videoId);
+            logger.warn("The link from the database does not reach a valid video: " + videoLink);
             res.sendError(502);
             return;
         }
 
         req.setAttribute("snippet", snippet);
-
-//        req.setAttribute("videoName", snippet.getTitle());
-//        req.setAttribute("channelName", snippet.getChannelTitle());
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("watch.jsp");
         dispatcher.forward(req, res);
