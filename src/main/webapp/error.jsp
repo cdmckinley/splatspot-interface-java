@@ -10,7 +10,7 @@
     <c:choose>
 <%--  TODO make sure errorType is set  --%>
       <c:when test="${errorType == 'not-found'}">
-        <h1>That address wasn't found</h1>
+        <h1>That address or resource wasn't found</h1>
         <p class="w-50">Please re-type the address or return to the home page.</p>
       </c:when>
       <c:otherwise>
