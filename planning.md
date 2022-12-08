@@ -30,7 +30,7 @@ Completion status:
 - Get completely up to date on weekly work, including Week 7 ✅
 
 ### Week 8
-- ~~Get completely up to date on weekly work, including Week 8~~ Complete week 8 
+- ~~Get completely up to date on weekly work, including Week 8~~ Complete week 8 ✅
 - Figure out remaining technologies 🕒
 - Submit checkpoint 2 ✅
 
@@ -63,6 +63,8 @@ Completion status:
   - Make a page to insert data ✅
   - Add edit functionality to the insert page
   - Add delete functionality to each SharedMedia entry 
+    - Make the page ✅
+    - Confirm their authorization
   - Make a search page (by user)
   - Adjust error handling to use sendError
   - Data validation
