@@ -35,7 +35,8 @@ public class Error extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String errorType = req.getParameter("type");
-        if (errorType.equals("not-found") || errorType.equals("server")) {
+        if (errorType.equals("not-found") || errorType.equals("server") || errorType.equals("invalid-request") ||
+                errorType.equals("unauthorized") || errorType.equals("bad-gateway")) {
             req.setAttribute("errorType", errorType);
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
