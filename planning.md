@@ -61,16 +61,20 @@ Completion status:
 - Work in Individual Project
   - Make display page for videos, with an iFrame and some descriptive data ✅
   - Make a page to insert data ✅
-  - Add edit functionality to the insert page
-  - Add delete functionality to each SharedMedia entry 
+  - Add edit functionality to the insert page ✅
+  - Add delete functionality to each SharedMedia entry ✅
     - Make the page ✅
-    - Confirm their authorization
-  - Make a search page (by user)
-  - Adjust error handling to use sendError
+    - Confirm their authorization ✅
+  - Make a search page (by user) ✅
+  - Adjust error handling to use sendError ✅
   - Data validation
     - Client (includes requiring elements, as well as using a validation library)
     - Server (Use your bean models!)
-  - Replace(?) the profile page controller and JSP
+  - Replace(?) the profile page controller and JSP ✅
+  - Finish the NavBar and Home page ✅
+  - Fix bootstrap styling ❔
+  - JavaDocs
+  - Reconfigure Cognito and deploy
 - Update the project documents
 
 ### Week 16

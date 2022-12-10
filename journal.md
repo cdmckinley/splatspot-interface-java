@@ -452,3 +452,12 @@ I used:
   - [ThumbnailDetails](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/model/ThumbnailDetails.html)
   - [Thumbnail](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/model/Thumbnail.html)
 - [HTTP Error codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses)
+
+12/7 through 12/10
+- [JSTL if](https://www.tutorialspoint.com/jsp/jstl_core_if_tag.htm)
+- [JSTL choose](https://www.tutorialspoint.com/jsp/jstl_core_choose_tag.htm)
+- Refresher that [JSPs still need two `=`s when comparing](http://www.java2s.com/Questions_And_Answers/JSP-Servlet/JSTL/compare.htm)
+- [HTTP status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+- [Check for not null when checking for checkboxes](https://coderanch.com/t/358902/java/checkbox)
+- [`HttpSession` documentation](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSession.html)
+- 
