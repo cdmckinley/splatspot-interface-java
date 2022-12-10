@@ -12,23 +12,12 @@
         <div class="m-5 p-5">
             <img src="images/logo_4x.png" alt="SplatSpot Logo" >
         </div>
-        <h3>TODO: General App Description</h3>
-        <p class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos at aliquid molestiae accusamus quisquam ad, deleniti quis dicta necessitatibus similique maxime optio! Dignissimos corrupti, possimus illo in earum ipsa esse.</p>
-        <div class="m-5 p-5 border border-info">
-            <span>TODO: Put Image Here</span>
-        </div>
-        <h3>TODO: Discord Integration Description</h3>
-        <p class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos at aliquid molestiae accusamus quisquam ad, deleniti quis dicta necessitatibus similique maxime optio! Dignissimos corrupti, possimus illo in earum ipsa esse.</p>
-        <div class="m-5 p-5 border border-info">
-            <span>TODO: Put Image Here</span>
-        </div>
-        <h3>TODO: Media Sharing Description</h3>
-        <p class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos at aliquid molestiae accusamus quisquam ad, deleniti quis dicta necessitatibus similique maxime optio! Dignissimos corrupti, possimus illo in earum ipsa esse.</p>
-        <div class="m-5 p-5 border border-info">
-            <span>TODO: Put Image Here</span>
-        </div>
-        <h3>TODO: Other Notes and Contact</h3>
-        <p class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos at aliquid molestiae accusamus quisquam ad, deleniti quis dicta necessitatibus similique maxime optio! Dignissimos corrupti, possimus illo in earum ipsa esse.</p>
+        <h3>SplatSpot: The Spot for sharing Splatoon 3 moments!</h3>
+        <p class="w-50">Want to see our collection of Splatoon 3 moments?
+            Head to our <a class="link-light" href="list-videos">List of Videos</a>.
+            Want to share something of your own?
+            <a class="link-light" href="video">Share a video</a> after <a class="link-light" href="login">signing up and logging in</a>
+        </p>
     </main>
     <%@include file="include/footer.jsp"%>
 </div>
