@@ -8,6 +8,7 @@
 <div class="container-lg bg-secondary">
   <%@include file="include/header.jsp"%>
   <main class="bg-primary my-3 d-flex flex-column align-items-center text-white">
+      <h3>Videos list</h3>
       <table id="data-table" class="display">
           <thead>
               <tr>
