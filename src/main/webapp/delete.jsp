@@ -13,7 +13,6 @@
             <input type="checkbox" id="yesInput" name="yes">
             <button type="submit">Confirm</button>
         </form>
-<%--        TODO add delete confirmation--%>
     </main>
     <%@include file="include/footer.jsp"%>
 </div>
