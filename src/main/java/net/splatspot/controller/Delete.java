@@ -30,9 +30,12 @@ public class Delete extends HttpServlet {
         SharedMedia video = ServletUtilities.getVideoFromId(res, sharedMediaDao, idNumber);
         if (ServletUtilities.sharedMediaIsSentinel(video)) return;
 
-        // TODO 401 if user isn't the sharer or an admin
-
         HttpSession session = req.getSession();
+        String username = (String) session.getAttribute("userName");
+        if (username == null || !username.equals(video.getUser().getUsername())) {
+            res.sendError(401);
+            return;
+        }
 
         session.setAttribute("video-to-delete", idNumber);
 
@@ -42,12 +45,14 @@ public class Delete extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        HttpSession session = req.getSession();
+        String shouldDelete = req.getParameter("yes");
+        if (shouldDelete != null && !shouldDelete.isBlank()) {
+            HttpSession session = req.getSession();
 
-        int idNumber = (int) session.getAttribute("video-to-delete");
+            int idNumber = (int) session.getAttribute("video-to-delete");
 
-        sharedMediaDao.delete(sharedMediaDao.getById(idNumber));
-
-        ServletUtilities.redirectToPage(req, res, "/delete", "/home");
+            sharedMediaDao.delete(sharedMediaDao.getById(idNumber));
+        }
+        ServletUtilities.redirectToPage(req, res, "/delete", "/list-videos");
     }
 }
