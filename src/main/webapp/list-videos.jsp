@@ -9,6 +9,10 @@
   <%@include file="include/header.jsp"%>
   <main class="bg-primary my-3 d-flex flex-column align-items-center text-white">
       <h3>Videos list</h3>
+      <c:if test="${userName != null}">
+          <div><span>You're logged in as <c:out value="${userName}"/>, <a class="link-light" href="video">Add your own?</a></span></div>
+      </c:if>
+      <div class="bg-light">
       <table id="data-table" class="display">
           <thead>
               <tr>
@@ -31,6 +35,7 @@
               </c:forEach>
           </tbody>
       </table>
+      </div>
   </main>
   <%@include file="include/footer.jsp"%>
 </div>
