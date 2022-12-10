@@ -7,15 +7,17 @@
 <div class="container-lg bg-secondary">
     <%@include file="include/header.jsp"%>
     <main class="bg-primary my-3 d-flex flex-column align-items-center text-white">
-        <h3><c:out value="${sessionScope.snippet.getTitle()}"/></h3>
+        <h3><c:out value="${snippet.getTitle()}"/></h3>
         <h4>Shared by <c:out value="${profileName}"/> - from the YouTube channel
-            <c:out value="${sessionScope.snippet.getChannelTitle()}"/></h4>
+            <c:out value="${snippet.getChannelTitle()}"/></h4>
         <iframe type="text/html" width="640" height="360"
                 src="https://www.youtube.com/embed/<c:out value="${videoId}"/>"></iframe>
         <label for="description">Description by <c:out value="${profileName}"/>:</label>
         <p id="description"><c:out value="${mediaDescription}"/></p>
         <c:if test="${sessionScope.userName == profileName}">
-            <div><span>You posted this. <a href="delete?video-id=<c:out value="${id}"/>">Delete this post?</a></span></div>
+            <div><span>You posted this.
+                <a class="link-light" href="video?video-id=<c:out value="${id}"/>">Edit this post?</a>
+                <a class="link-light" href="delete?video-id=<c:out value="${id}"/>">Delete this post?</a></span></div>
         </c:if>
     </main>
     <%@include file="include/footer.jsp"%>
