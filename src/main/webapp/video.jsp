@@ -25,6 +25,7 @@
                     <input type="text" name="link" id="link" required>
                 </c:otherwise>
             </c:choose>
+            <br>
             <label for="description">Enter a description of the video, or your thoughts on it</label>
             <textarea name="description" id="description" cols="30" rows="10" maxlength="500"></textarea>
             <button type="submit">Submit</button>
