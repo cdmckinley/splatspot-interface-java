@@ -38,6 +38,7 @@ public class LogIn extends HttpServlet implements PropertiesLoader {
             logger.error("An " + exception.getClass().getName() +
                             " occurred. Make sure a properly formatted 'cognito.properties' file exists and is readable",
                     exception);
+            properties = null;
         }
     }
 
@@ -45,12 +46,16 @@ public class LogIn extends HttpServlet implements PropertiesLoader {
      * Route to the aws-hosted cognito login page.
      * @param req servlet request
      * @param resp servlet response
-     * @throws ServletException
      * @throws IOException
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO if properties weren't loaded properly, route to an error page
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+        if (properties == null) {
+            resp.sendError(500);
+            return;
+        }
+
         String url = LOGIN_URL + "?response_type=code&client_id=" + CLIENT_ID + "&redirect_uri=" + REDIRECT_URL;
         resp.sendRedirect(url);
     }
