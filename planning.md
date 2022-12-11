@@ -68,12 +68,13 @@ Completion status:
   - Make a search page (by user) ✅
   - Adjust error handling to use sendError ✅
   - Data validation
-    - Client (includes requiring elements, as well as using a validation library)
-    - Server (Use your bean models!)
+    - Client (includes requiring elements, as well as using a validation library) ✅
+    - Server (Use your bean models!) ❔
   - Replace(?) the profile page controller and JSP ✅
   - Finish the NavBar and Home page ✅
   - Fix bootstrap styling ❔
-  - JavaDocs
+  - JavaDocs ✅
+  - Push to main branch
   - Reconfigure Cognito and deploy
 - Update the project documents
 
