@@ -124,10 +124,19 @@ public class SharedMedia {
         this.description = description;
     }
 
+    /**
+     * Retrieves the YouTube video's snippet and keeps it in memory.
+     * @param youTubeAccess The Youtube Access Object
+     * @throws IOException
+     */
     public void setSnippet(YouTubeAccess youTubeAccess) throws IOException {
         snippet = youTubeAccess.getVideoSnippet(link);
     }
 
+    /**
+     * Gets the YouTube video's snippet from memory.
+     * @return the video snippet
+     */
     public VideoSnippet getSnippet() {
         return snippet;
     }
