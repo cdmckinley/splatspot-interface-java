@@ -460,4 +460,10 @@ I used:
 - [HTTP status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 - [Check for not null when checking for checkboxes](https://coderanch.com/t/358902/java/checkbox)
 - [`HttpSession` documentation](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSession.html)
-- 
+
+### Sixteenth Week
+
+12/11
+- [jQuery form validation](https://www.geeksforgeeks.org/form-validation-using-jquery/) for the posting and edit forms
+  - I wanted to have a decent understanding of the base for my alteration, so I looked up the [`keyup` function](https://www.w3schools.com/jquery/event_keyup.asp)
+  - My form wasn't submitting, so I looked up [the `submit` function](https://api.jquery.com/submit/#submit) to learn why. The example has `click` rather than `submit`
