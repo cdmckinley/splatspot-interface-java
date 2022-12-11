@@ -18,6 +18,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The Video servlet.
+ */
 @WebServlet(
         urlPatterns = {"/video"}
 )
@@ -28,11 +31,28 @@ public class Video extends HttpServlet {
      */
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * The User DAO
+     */
     private Dao<User> userDao = new Dao<>(User.class);
+
+    /**
+     * The Shared Media DAO
+     */
     private Dao<SharedMedia> sharedMediaDao = new Dao<>(SharedMedia.class);
 
+    /**
+     * The YouTube Access Object
+     */
     private YouTubeAccess youTubeAccess = new YouTubeAccess();
 
+    /**
+     * Determines data for the video JSP and forwards there. Responds with a 401 error if unauthorized.
+     * @param req The Http Servlet Request
+     * @param res TheHttpServlet Response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String id = req.getParameter("video-id");
@@ -63,6 +83,12 @@ public class Video extends HttpServlet {
         dispatcher.forward(req, res);
     }
 
+    /**
+     * Posts a new SharedMedia or updates an existing one.
+     * @param req The Http Servlet Request
+     * @param res The Http Servlet Response
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
         HttpSession session = req.getSession();
