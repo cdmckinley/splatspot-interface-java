@@ -17,6 +17,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The servlet for listing existing SharedMedia entities and relevant data.
+ */
 @WebServlet(
         urlPatterns = {"/list-videos"}
 )
@@ -27,10 +30,23 @@ public class ListVideos extends HttpServlet {
      */
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * The User DAO
+     */
     private Dao<User> userDao = new Dao<>(User.class);
 
+    /**
+     * The SharedMedia DAO
+     */
     private Dao<SharedMedia> sharedMediaDao = new Dao<>(SharedMedia.class);
 
+    /**
+     * Loads SharedMedia entities and relevant data, then forward to the JSP.
+     * @param req The Http Servlet Request
+     * @param res The Http Servlet Response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String searchInput = req.getParameter("user");
