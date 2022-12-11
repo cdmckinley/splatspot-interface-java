@@ -12,20 +12,42 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Begins the authentication process using AWS Cognito.
+ */
 @WebServlet(
         urlPatterns = {"/login"}
 )
-
-/** Begins the authentication process using AWS Cognito
- *
- */
 public class LogIn extends HttpServlet implements PropertiesLoader {
+    /**
+     * The Cognito properties.
+     */
     Properties properties;
+
+    /**
+     * The Logger.
+     */
     private final Logger logger = LogManager.getLogger(this.getClass());
+
+    /**
+     * The Cognito Client ID.
+     */
     public static String CLIENT_ID;
+
+    /**
+     * The Cognito Login URL.
+     */
     public static String LOGIN_URL;
+
+    /**
+     * The Cognito Redirect URL.
+     */
     public static String REDIRECT_URL;
 
+    /**
+     * Loads properties for Cognito.
+     * @throws ServletException
+     */
     @Override
     public void init() throws ServletException {
         super.init();
@@ -43,7 +65,7 @@ public class LogIn extends HttpServlet implements PropertiesLoader {
     }
 
     /**
-     * Route to the aws-hosted cognito login page.
+     * Route to the aws-hosted cognito login page. Respond with 500 error if properties didn't properly load.
      * @param req servlet request
      * @param resp servlet response
      * @throws IOException
