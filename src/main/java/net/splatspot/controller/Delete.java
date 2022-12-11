@@ -13,13 +13,26 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The Delete servlet.
+ */
 @WebServlet(
         urlPatterns = {"/delete"}
 )
 public class Delete extends HttpServlet {
 
+    /**
+     * The SharedMedia DAO
+     */
     private Dao<SharedMedia> sharedMediaDao = new Dao<>(SharedMedia.class);
 
+    /**
+     * Determines data for the delete JSP and forwards there. Responds with a 401 error if unauthorized.
+     * @param req The Http Servlet Request
+     * @param res The Http Servlet Response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String id = req.getParameter("video-id");
@@ -43,6 +56,12 @@ public class Delete extends HttpServlet {
         dispatcher.forward(req, res);
     }
 
+    /**
+     * Deletes a SharedMedia entity.
+     * @param req The Http Servlet Request
+     * @param res The HttpServlet Response
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
         String shouldDelete = req.getParameter("yes");
