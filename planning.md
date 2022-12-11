@@ -74,8 +74,8 @@ Completion status:
   - Finish the NavBar and Home page ✅
   - Fix bootstrap styling ❔
   - JavaDocs ✅
-  - Push to main branch
-  - Reconfigure Cognito and deploy
+  - Push to main branch ✅
+  - Reconfigure Cognito and deploy ❔
 - Update the project documents
 
 ### Week 16
