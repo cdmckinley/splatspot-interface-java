@@ -5,9 +5,8 @@
 <head>
 <%@include file="include/head.jsp"%>
     <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/
-        jquery/3.3.1/jquery.min.js">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 <body class="bg-dark pb-0 mb-0">
 <div class="container-lg bg-secondary">
@@ -29,7 +28,7 @@
                 <c:otherwise>
                     <div class="form-group">
                         <label for="link">ID for the YouTube video</label>
-                        <input type="text" name="link" id="link" required>
+                        <input class="form-control" type="text" name="link" id="link" required>
                         <p id="linkvalid">
                             Enter the 11 character id found after the <span>'v='</span> in
                             <span>www.youtube.com/watch?v=***********</span>, also found as the 11 characters following
@@ -40,12 +39,13 @@
             </c:choose>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea name="description" id="description" cols="30" rows="10" maxlength="500"></textarea>
+                <textarea class="form-control" name="description" id="description" cols="30" rows="10" maxlength="500"></textarea>
                 <p id="descriptionvalid">
-                    Enter a description of the video, or your thoughts on it. Must be no longer than 500 characters.
+                    Enter a description of the video, or your thoughts on it, if you'd like.
+                    Must be no longer than 500 characters.
                 </p>
             </div>
-            <button type="submit">Submit</button>
+            <input type="submit" id="submitbutton" value="Submit" class="btn btn-primary">
         </form>
     </main>
     <%@include file="include/footer.jsp"%>
