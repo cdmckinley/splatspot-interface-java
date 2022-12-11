@@ -467,3 +467,5 @@ I used:
 - [jQuery form validation](https://www.geeksforgeeks.org/form-validation-using-jquery/) for the posting and edit forms
   - I wanted to have a decent understanding of the base for my alteration, so I looked up the [`keyup` function](https://www.w3schools.com/jquery/event_keyup.asp)
   - My form wasn't submitting, so I looked up [the `submit` function](https://api.jquery.com/submit/#submit) to learn why. The example has `click` rather than `submit`
+- [This StackOverflow thread](https://stackoverflow.com/questions/25080148/error-no-suitable-driver-found-for-database-on-aws-rds) wasn't exactly necessary, but did help me realize I forgot `jdbc:mysql://` at the start of my connection in Hibernate's configuration.
+- The course website, Slack, and YouTube channel
