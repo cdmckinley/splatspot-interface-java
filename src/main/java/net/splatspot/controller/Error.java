@@ -25,7 +25,7 @@ public class Error extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     /**
-     * Forwards to the 'error' JSP when there's a GET request.
+     * Forwards to the 'error' JSP.
      * @param req The HttpServletRequest
      * @param resp The HttpServletResponse
      * @throws ServletException
