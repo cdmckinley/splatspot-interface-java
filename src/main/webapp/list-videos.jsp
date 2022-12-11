@@ -2,7 +2,9 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html>
 <c:set var = "title" scope = "page" value = "Videos List"/>
-<%@include file="include/head.jsp"%>
+<head>
+    <%@include file="include/head.jsp"%>
+</head>
 <body class="bg-dark pb-0 mb-0">
 <%@include file="include/data-tables.jsp"%>
 <div class="container-lg bg-secondary">
