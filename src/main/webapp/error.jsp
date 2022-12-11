@@ -2,16 +2,37 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html>
 <c:set var = "title" scope = "page" value = "Error"/>
-<%@include file="include/head.jsp"%>
+<head>
+  <%@include file="include/head.jsp"%>
+</head>
 <body class="bg-dark pb-0 mb-0">
 <div class="container-lg bg-secondary">
   <%@include file="include/header.jsp"%>
   <main class="bg-primary my-3 d-flex flex-column align-items-center text-white">
     <c:choose>
-<%--  TODO make sure errorType is set  --%>
       <c:when test="${errorType == 'not-found'}">
-        <h1>That address wasn't found</h1>
+        <h1>That address or resource wasn't found</h1>
         <p class="w-50">Please re-type the address or return to the home page.</p>
+      </c:when>
+      <c:when test="${errorType == 'invalid-request'}">
+        <h1>We received an invalid request</h1>
+        <p class="w-50">Please try re-entering the URL or trying the form again.
+          If something still isn't right, please let us know
+          <a class="link-dark" href="https://github.com/cdmckinley/splatspot-interface-java/issues">here on GitHub</a>.
+        </p>
+      </c:when>
+      <c:when test="${errorType == 'unauthorized'}">
+        <h1>You aren't authorized to that resource</h1>
+        <p class="w-50">If you believe this is an error, please let us know
+          <a class="link-dark" href="https://github.com/cdmckinley/splatspot-interface-java/issues">here on GitHub</a>.
+        </p>
+      </c:when>
+      <c:when test="${errorType == 'bad-gateway'}">
+        <h1>We couldn't access that resource</h1>
+        <p class="w-50">We tried accessing the resource of another service and got an unexpected response or none at
+            all. The resource we're trying to access may have been removed. Please let us know
+          <a class="link-dark" href="https://github.com/cdmckinley/splatspot-interface-java/issues">here on GitHub</a>.
+        </p>
       </c:when>
       <c:otherwise>
         <h1>An error occurred</h1>
@@ -24,7 +45,7 @@
         </p>
       </c:otherwise>
     </c:choose>
-    <p>Thanks for using SplatSpot! <a class="link-dark" href="<c:url value="/home"/>">Return to home page</a></p>
+    <p>Thanks for using SplatSpot! <a class="link-light" href="<c:url value="/home"/>">Return to home page</a></p>
   </main>
   <%@include file="include/footer.jsp"%>
 </div>

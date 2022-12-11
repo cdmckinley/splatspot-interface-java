@@ -393,3 +393,77 @@ Resources:
 
 11/3 through 11/13
 See journal for Team Project, and Professional Development Activity presentation.
+
+### Twelfth week
+
+Sometime in Week 12
+
+I worked ahead and completed week 13, without much issue. It was great learning another way for applications to communicate.
+
+### Thirteenth week
+
+11/21 through 11/26
+
+I've had to do some re-adjustment of scope recently
+
+- I set my app up at https://console.cloud.google.com/
+- I started making a DAO for YouTube from an example [here](https://developers.google.com/youtube/v3/code_samples/code_snippets?apix=true)
+- [JavaDocs](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/) for the library for YouTube
+- https://developers.google.com/youtube/v3/quickstart/java
+- Maven
+  - https://mvnrepository.com/artifact/com.google.apis/google-api-services-youtube
+  - https://mvnrepository.com/artifact/com.google.api-client/google-api-client
+
+### Fourteenth Week
+
+11/28
+- [YouTube Video documentation](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/YouTube.Videos.html)
+- Maven repositories
+  - https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-java6/1.34.1
+  - https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty/1.34.1
+
+11/29
+It took some time, but I found how to use the API key with the YouTube Data API library. Seeing [Videos.List.setKey](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/YouTube.Videos.List.html) was very helpful, even if I had to do quite a bit of looking to find which clas had the method.
+I used:
+- The link above, as well as [this StackOverflow thread](https://stackoverflow.com/questions/26117184/how-to-put-api-key-into-youtube-builder-in-youtubes-android-api)
+- Course website, YouTube channel, and Slack
+- Seeing I could pass null for my credentials on [`Youtube.Builder`](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/YouTube.Builder.html)
+
+### Fifteenth Week
+
+11/30 through 12/4
+- [YouTube embedding with iFrames](https://developers.google.com/youtube/player_parameters)
+- [Sending Errors](https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletResponse.html)
+- [Refresh on `Integer.parseInt`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html)
+- [HTTP Error Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses)
+
+12/5
+- [W3Schools: Textarea](https://www.w3schools.com/tags/tag_textarea.asp)
+- [Converting sets to lists](https://www.geeksforgeeks.org/set-list-java/) (I used Method 2)
+- The big one?!? [Accessing session from JSPs](https://www.javatips.net/blog/reading-session-attributes-using-jstl)
+- The course meeting, Slack, and website
+
+12/6
+- [Quota Calculator](https://developers.google.com/youtube/v3/determine_quota_cost)
+- [HTML tables](https://www.w3schools.com/html/html_tables.asp)
+- [JSTL URLs](https://www.tutorialspoint.com/jsp/jstl_core_url_tag.htm)
+- YouTube Data API
+  - [VideoSnippet](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/)
+  - [ThumbnailDetails](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/model/ThumbnailDetails.html)
+  - [Thumbnail](https://developers.google.com/resources/api-libraries/documentation/youtube/v3/java/latest/com/google/api/services/youtube/model/Thumbnail.html)
+- [HTTP Error codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses)
+
+12/7 through 12/10
+- [JSTL if](https://www.tutorialspoint.com/jsp/jstl_core_if_tag.htm)
+- [JSTL choose](https://www.tutorialspoint.com/jsp/jstl_core_choose_tag.htm)
+- Refresher that [JSPs still need two `=`s when comparing](http://www.java2s.com/Questions_And_Answers/JSP-Servlet/JSTL/compare.htm)
+- [HTTP status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+- [Check for not null when checking for checkboxes](https://coderanch.com/t/358902/java/checkbox)
+- [`HttpSession` documentation](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSession.html)
+
+### Sixteenth Week
+
+12/11
+- [jQuery form validation](https://www.geeksforgeeks.org/form-validation-using-jquery/) for the posting and edit forms
+  - I wanted to have a decent understanding of the base for my alteration, so I looked up the [`keyup` function](https://www.w3schools.com/jquery/event_keyup.asp)
+  - My form wasn't submitting, so I looked up [the `submit` function](https://api.jquery.com/submit/#submit) to learn why. The example has `click` rather than `submit`

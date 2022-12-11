@@ -1,8 +1,11 @@
 package net.splatspot.entity;
 
+import com.google.api.services.youtube.model.VideoSnippet;
+import net.splatspot.persistence.YouTubeAccess;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.IOException;
 
 
 /**
@@ -38,6 +41,9 @@ public class SharedMedia {
      */
     @Column(length = 500)
     private String description;
+
+    @Transient
+    private VideoSnippet snippet = null;
 
     /**
      * Instantiates a new Shared media object.
@@ -116,5 +122,22 @@ public class SharedMedia {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * Retrieves the YouTube video's snippet and keeps it in memory.
+     * @param youTubeAccess The Youtube Access Object
+     * @throws IOException
+     */
+    public void setSnippet(YouTubeAccess youTubeAccess) throws IOException {
+        snippet = youTubeAccess.getVideoSnippet(link);
+    }
+
+    /**
+     * Gets the YouTube video's snippet from memory.
+     * @return the video snippet
+     */
+    public VideoSnippet getSnippet() {
+        return snippet;
     }
 }

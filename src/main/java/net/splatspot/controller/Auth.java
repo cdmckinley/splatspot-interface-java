@@ -10,6 +10,7 @@ import edu.matc.auth.*;
 import edu.matc.utilities.PropertiesLoader;
 import net.splatspot.entity.User;
 import net.splatspot.persistence.Dao;
+import net.splatspot.utilities.ServletUtilities;
 import org.apache.commons.io.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,15 +43,12 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
-
-@WebServlet(
-        urlPatterns = {"/auth"}
-)
-// TODO if something goes wrong it this process, route to an error page. Currently, errors are only caught and logged.
 /**
  * Inspired by: https://stackoverflow.com/questions/52144721/how-to-get-access-token-using-client-credentials-using-java-code
  */
-
+@WebServlet(
+        urlPatterns = {"/auth"}
+)
 public class Auth extends HttpServlet implements PropertiesLoader {
     Properties properties;
     String CLIENT_ID;
@@ -88,21 +86,19 @@ public class Auth extends HttpServlet implements PropertiesLoader {
      * Gets the auth code from the request and exchanges it for a token containing user info.
      * @param req servlet request
      * @param resp servlet response
-     * @throws ServletException
      * @throws IOException
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        final String thisPage = "/auth";
         final String indexPage = "/home";
-        final String errorPage = "/error";
         final String loginPage = "/login";
 
         String authCode = req.getParameter("code");
         String userName = null;
 
         if (authCode == null) {
-            //TODO update this code block if need-be
-            redirectToPage(req, resp, loginPage);
+            ServletUtilities.redirectToPage(req, resp, thisPage, loginPage);
         } else {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
@@ -113,50 +109,24 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
                 Dao<User> userDao = new Dao<>(User.class);
 
-                // TODO Check if the user is in the database already
                 if (userDao.getByProperty("username", userName).isEmpty()) {
                     // Instantiate a new User with their username and default settings
                     User user = new User();
                     user.setUsername(userName);
-                    user.setShareInfoWithUsers(false);
-                    user.setShareWhenReadyToPlay(false);
 
-                    // TODO insert new user into database
                     userDao.insert(user);
                 }
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 // TODO Give the user more information on the error?
-                forwardToPage(req, resp, errorPage);
+                resp.sendError(500);
             } catch (InterruptedException e) {
                 logger.error("Error getting token from Cognito oauth url " + e.getMessage(), e);
                 // TODO Give the user more information on the error?
-                forwardToPage(req, resp, errorPage);
+                resp.sendError(500);
             }
-            redirectToPage(req, resp, indexPage);
+            ServletUtilities.redirectToPage(req, resp, thisPage, indexPage);
         }
-    }
-
-    /**
-     * Forwards to another page
-     * @param req the HTTP request
-     * @param resp the HTTP response
-     * @param pageName the name of the page to forward to
-     * @throws ServletException
-     * @throws IOException
-     */
-    protected void forwardToPage(HttpServletRequest req, HttpServletResponse resp, String pageName) throws ServletException,
-            IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher(pageName);
-        dispatcher.forward(req, resp);
-    }
-
-    protected void redirectToPage(HttpServletRequest req, HttpServletResponse resp, String pageName) throws IOException{
-        String urlParam = "/auth";
-        String url = req.getRequestURL().toString();
-        url = url.substring(0, url.length() - urlParam.length());
-        url = url + pageName;
-        resp.sendRedirect(url);
     }
 
     /**
@@ -233,8 +203,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         logger.debug("here are all the available claims: " + jwt.getClaims());
 
-        // TODO decide what you want to do with the info!
-        // for now, I'm just returning username for display back to the browser
 
         return userName;
     }

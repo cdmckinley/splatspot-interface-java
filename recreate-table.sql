@@ -9,15 +9,8 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
     `id` int NOT NULL AUTO_INCREMENT,
     `username` varchar(128) NOT NULL,
-    `discord_id` char(17) DEFAULT NULL,
-    `nickname` varchar(25) DEFAULT NULL,
-    `friend_code` varchar(17) DEFAULT NULL,
-    `splash_tag_name` varchar(10) DEFAULT NULL,
-    `splash_tag_number` varchar(4) DEFAULT NULL,
-    `share_info_with_users` char(1) DEFAULT NULL,
-    `share_when_ready_to_play` char(1) DEFAULT NULL,
     PRIMARY KEY (`id`),
-    Unique (username, discord_id)
+    Unique (username)
 );
 
 CREATE TABLE `shared_media` (

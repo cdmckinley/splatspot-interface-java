@@ -50,7 +50,7 @@ public class SharedMediaDaoTest {
 
         SharedMedia result = sharedMediaDao.getById(id);
         assertEquals(testLink, result.getLink());
-        assertEquals(user.getNickname(), result.getUser().getNickname());
+        assertEquals(user.getUsername(), result.getUser().getUsername());
     }
 
     /**
@@ -96,7 +96,7 @@ public class SharedMediaDaoTest {
         User user = sharedMedia.getUser();
         sharedMediaDao.delete(sharedMedia);
         assertNull(sharedMediaDao.getById(sharedMediaId));
-        assertEquals(user.getNickname(), userDao.getById(user.getId()).getNickname());
+        assertEquals(user.getUsername(), userDao.getById(user.getId()).getUsername());
     }
 
     /**

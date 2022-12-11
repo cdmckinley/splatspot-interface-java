@@ -26,8 +26,8 @@
     <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
     <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
     <mysql-version>8.0.30</mysql-version>
-    <youtube-client-version>2.0.1</youtube-client-version>
-    <youtube-service-version>v3-rev20221108-2.0.0</youtube-service-version>
+    <youtube-client-version>1.30.11</youtube-client-version>
+    <youtube-service-version>v3-rev222-1.25.0</youtube-service-version>
   </properties>
 
   <dependencies>
@@ -136,6 +136,14 @@
       <artifactId>google-api-client</artifactId>
       <version>${youtube-client-version}</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client-jackson2 -->
+    <dependency>
+      <groupId>com.google.api-client</groupId>
+      <artifactId>google-api-client-jackson2</artifactId>
+      <version>${youtube-client-version}</version>
+    </dependency>
+
     <dependency>
       <groupId>com.google.apis</groupId>
       <artifactId>google-api-services-youtube</artifactId>
