@@ -27,7 +27,7 @@ public class Home extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     /**
-     * Forward to the 'home' jsp when a GET request is received
+     * Forward to the 'home' jsp when a GET request is received. Logs the user out if the query parameter is set.
      * @param req The HttpServletRequest
      * @param res The HttpServletResponse
      * @throws ServletException
