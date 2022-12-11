@@ -32,7 +32,7 @@ This repository is for a project in Madison College's Enterprise Java Class, and
 - IDE
   - IntelliJ IDEA
 
-### [Project Goals](goals.md)
+### [Project Goals](goals.md) (Out of date)
 
 ### Design
 - [User stories](userStories.md) (Needs updating)
