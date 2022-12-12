@@ -10,7 +10,7 @@
 <div class="container-lg bg-secondary">
   <%@include file="include/header.jsp"%>
   <main class="bg-primary my-3 d-flex flex-column align-items-center text-white">
-      <h3>Videos list (UI powered by <a href="https://datatables.net/">Data Tables</a>)</h3>
+      <h3>Videos list (UI powered by <a class="link-light" href="https://datatables.net/">Data Tables</a>)</h3>
       <c:if test="${userName != null}">
           <div><span>You're logged in as <c:out value="${userName}"/>, <a class="link-light" href="video">Add your own?</a></span></div>
       </c:if>
